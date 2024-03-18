@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="478.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.Controller">
+   <children>
+      <Button layoutX="72.0" layoutY="14.0" mnemonicParsing="false" onAction="#showAllWords" text="showAllWord">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ListView fx:id="listView" layoutY="58.0" prefHeight="426.0" prefWidth="678.0" />
+   </children>
+</AnchorPane>
