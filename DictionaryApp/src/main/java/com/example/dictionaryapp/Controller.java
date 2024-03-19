@@ -1,7 +1,6 @@
 package com.example.dictionaryapp;
 
 import javafx.event.ActionEvent;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -42,11 +41,11 @@ public class Controller {
 
     public Set<String> set = data.keySet();
     public static boolean first_time = true;
-    public void search() throws IOException {
-        if(first_time) readData();
-        String text = searchWord.getText();
-        //String lowerCasetext = text.toLowerCase();
+    public void search(){
 
+        String text = searchWord.getText();
+
+        //String lowerCasetext = text.toLowerCase();
             if (set.contains(text)) {
                 definitionView.getEngine().loadContent(data.get(text), "text/html");
             }
@@ -58,7 +57,7 @@ public class Controller {
             spelling();
         }
     }
-    private Stage stage;
+    /*private Stage stage;
     private Scene scene;
     private Parent root;
 
@@ -69,14 +68,33 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
 
+    }*/
+    public void sort() throws IOException {
+        if(first_time) {
+            readData();
+            first_time = false;
+            List<String> listWord = new ArrayList<>(set);
+            // Sorting a List
+            Collections.sort(listWord);
+            // Convert List to Set
+            set = new LinkedHashSet<>(listWord);
+            insertToMap(set);
+        }
     }
     public void showAllWords() {
-        List<String> listWord = new ArrayList<>(set);
-        // Sorting a List
-        Collections.sort(listWord);
-        // Convert List to Set
-        set = new LinkedHashSet<>(listWord);
-        listView.getItems().addAll(set);
+        String text = searchWord.getText();
+        if(text.equals("")) listView.getItems().addAll(set);
+        else {
+            List<String> matchingWords = prefixMap.getOrDefault(text, new ArrayList<>());
+            if (text.length() == 1) {
+                listView.getItems().removeAll(set);
+                listView.getItems().addAll(prefixMap.getOrDefault(text, new ArrayList<>()));
+
+            } else if (text.length() > 1) {
+                listView.getItems().removeAll(prefixMap.getOrDefault(text.substring(0, text.length() - 1), new ArrayList<>()));
+                listView.getItems().addAll(prefixMap.getOrDefault(text, new ArrayList<>()));
+            }
+        }
     }
     private static String myKey = "40ccd1f320c549f3afc53b26046c49a4";
     public static String ACCENT = Languages.English_GreatBritain;
@@ -109,7 +127,7 @@ public class Controller {
     //public static boolean checkBox = true;
     public void change() throws IOException {
         if(choice.isSelected()) {
-            first_time = false;
+            //first_time = false;
             myLabel.setText("Vie-Eng");
             path = "data/tts_rss_text.mp3";
             ACCENT = Languages.Vietnamese;
@@ -166,4 +184,15 @@ public class Controller {
         }
 
     }
+    public static Map<String, List<String>> prefixMap = new HashMap<>();
+    public void insertToMap(Set<String> set) {
+        for (String word : set) {
+            for (int i = 1; i <= word.length(); i++) {
+                String prefix = word.substring(0, i);
+                prefixMap.putIfAbsent(prefix, new ArrayList<>());
+                prefixMap.get(prefix).add(word);
+            }
+        }
+    }
+
 }
