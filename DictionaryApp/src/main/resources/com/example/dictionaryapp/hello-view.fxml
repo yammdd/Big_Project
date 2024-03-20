@@ -38,11 +38,6 @@
                         </Label>
                      </children>
                   </VBox>
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="check">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
                   <Button mnemonicParsing="false" onAction="#exitProgram" prefWidth="80.0" text="Exit">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -50,7 +45,7 @@
                   </Button>
                </children>
             </HBox>
-            <TextField fx:id="searchWord" maxWidth="-Infinity" onKeyPressed="#keyPressed" onKeyTyped="#showAllWords" onMouseClicked="#sort" prefHeight="26.0" prefWidth="198.0" promptText="Nhập từ mày cần tìm">
+            <TextField fx:id="searchWord" maxWidth="-Infinity" onKeyPressed="#keyPressed" onKeyTyped="#showAllWords" prefHeight="26.0" prefWidth="198.0" promptText="Nhập từ mày cần tìm">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin></TextField>

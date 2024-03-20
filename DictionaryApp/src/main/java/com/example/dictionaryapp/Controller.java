@@ -1,11 +1,6 @@
 package com.example.dictionaryapp;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -13,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
 import com.voicerss.tts.*;
 import java.io.*;
 import java.util.*;
@@ -26,30 +20,32 @@ public class Controller {
     private Label myLabel;
     @FXML
     private CheckBox choice;
-
     @FXML
     private ListView<String> listView;
     @FXML
     private WebView definitionView;
-
     @FXML
     private TextField searchWord;
 
     public void exitProgram() {
         System.exit(0);
     }
+    public static final Map<String, String> data_eng2vie = Main.getE2V();
+    public static Set<String> set_eng2vie = data_eng2vie.keySet();
+    public static final Map<String, String> data_vie2eng = Main.getV2E();
+    public static Set<String> set_vie2eng = data_vie2eng.keySet();
+    //public static Map<String, List<String>> Map_eng2vie = Main.getPrefixMap_E2V();
+    //public static Map<String, List<String>> Map_vie2eng = Main.getPrefixMap_V2E();
+    public static Map<String, String> data;
+    public static Set<String> set;
 
-    public Set<String> set = data.keySet();
-    public static boolean first_time = true;
+    //public static boolean first_time = true;
     public void search(){
-
         String text = searchWord.getText();
-
         //String lowerCasetext = text.toLowerCase();
-            if (set.contains(text)) {
-                definitionView.getEngine().loadContent(data.get(text), "text/html");
-            }
-
+        if (set.contains(text)) {
+            definitionView.getEngine().loadContent(data.get(text), "text/html");
+        }
     }
     public void keyPressed(KeyEvent e) throws Exception {
         if(e.getCode().equals(KeyCode.ENTER)) {
@@ -69,53 +65,48 @@ public class Controller {
         stage.show();
 
     }*/
-    public void sort() throws IOException {
-        if(first_time) {
-            readData();
-            first_time = false;
-            List<String> listWord = new ArrayList<>(set);
-            // Sorting a List
-            Collections.sort(listWord);
-            // Convert List to Set
-            set = new LinkedHashSet<>(listWord);
-            insertToMap(set);
-        }
-    }
+    public static List<String> curr;
+    public static Map<String, List<String>> prefixMap;
     public void showAllWords() {
+        if(choice.isSelected()) {
+            prefixMap = Main.getPrefixMap_V2E();
+            set = set_vie2eng;
+            data = data_vie2eng;
+        } else {
+            prefixMap = Main.getPrefixMap_E2V();
+            set = set_eng2vie;
+            data = data_eng2vie;
+        }
         String text = searchWord.getText();
-        if(text.equals("")) listView.getItems().addAll(set);
-        else {
-            List<String> matchingWords = prefixMap.getOrDefault(text, new ArrayList<>());
-            if (text.length() == 1) {
-                listView.getItems().removeAll(set);
-                listView.getItems().addAll(prefixMap.getOrDefault(text, new ArrayList<>()));
+        if (text.length() == 1) {
+            listView.getItems().removeAll(set);
+            curr = prefixMap.getOrDefault(text, new ArrayList<>());
+            listView.getItems().addAll(curr);
 
-            } else if (text.length() > 1) {
-                listView.getItems().removeAll(prefixMap.getOrDefault(text.substring(0, text.length() - 1), new ArrayList<>()));
-                listView.getItems().addAll(prefixMap.getOrDefault(text, new ArrayList<>()));
-            }
+        } else if (text.length() > 1) {
+            listView.getItems().removeAll(curr);
+            curr = prefixMap.getOrDefault(text, new ArrayList<>());
+            listView.getItems().addAll(curr);
+        } else {
+            listView.getItems().addAll(set);
         }
     }
-    private static String myKey = "40ccd1f320c549f3afc53b26046c49a4";
+    private static final String myKey = "40ccd1f320c549f3afc53b26046c49a4";
     public static String ACCENT = Languages.English_GreatBritain;
     public static String path = "data/tts_rss_word.mp3";
     public void requestDownload(String text) throws Exception {
         VoiceProvider tts = new VoiceProvider(myKey);
-
         VoiceParameters params = new VoiceParameters(text, ACCENT);
         params.setCodec(AudioCodec.MP3);
         params.setFormat(AudioFormat.Format_44KHZ.AF_44khz_16bit_stereo);
         params.setBase64(false);
         params.setSSML(false);
         params.setRate(0);
-
         byte[] voice = tts.speech(params);
-
         FileOutputStream fos = new FileOutputStream(path);
         fos.write(voice, 0, voice.length);
         fos.flush();
         fos.close();
-
     }
     public void spelling() throws Exception {
         String text = searchWord.getText();
@@ -124,74 +115,16 @@ public class Controller {
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
     }
-    //public static boolean checkBox = true;
+
     public void change() throws IOException {
         if(choice.isSelected()) {
-            //first_time = false;
             myLabel.setText("Vie-Eng");
             path = "data/tts_rss_text.mp3";
             ACCENT = Languages.Vietnamese;
-            FILE_PATH = "data/vie_eng.txt";
-            data.clear();
-            set.clear();
-            readData();
-
         } else {
             myLabel.setText("Eng-Vie");
             path = "data/tts_rss_word.mp3";
             ACCENT = Languages.English_GreatBritain;
-            FILE_PATH = "data/eng_vie.txt";
-            readData();
-        }
-    }
-
-    class Word {
-        private String word;
-        private String def;
-
-        public Word(String word, String def) {
-            this.word = word;
-            this.def = def;
-        }
-
-        public String getWord() {
-            return word;
-        }
-
-        public void setWord(String word) {
-            this.word = word;
-        }
-
-        public String getDef() {
-            return def;
-        }
-
-        public void setDef(String def) {
-            this.def = def;
-        }
-    }
-    public static String FILE_PATH = "data/eng_vie.txt";
-    public static Map<String, String> data = new HashMap<>();
-    public void readData() throws IOException {
-        FileReader fis = new FileReader(FILE_PATH);
-        BufferedReader br = new BufferedReader(fis);
-        String line;
-        while ((line = br.readLine()) != null) {
-            String[] parts = line.split("<html>");
-            String word = parts[0];
-            String definition = "<html>" + parts[1];
-            data.put(word, definition);
-        }
-
-    }
-    public static Map<String, List<String>> prefixMap = new HashMap<>();
-    public void insertToMap(Set<String> set) {
-        for (String word : set) {
-            for (int i = 1; i <= word.length(); i++) {
-                String prefix = word.substring(0, i);
-                prefixMap.putIfAbsent(prefix, new ArrayList<>());
-                prefixMap.get(prefix).add(word);
-            }
         }
     }
 
