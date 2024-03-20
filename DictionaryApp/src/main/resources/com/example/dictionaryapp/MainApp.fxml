@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.Controller">
    <children>
       <VBox layoutX="235.0" layoutY="81.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -45,18 +45,18 @@
                   </Button>
                </children>
             </HBox>
-            <TextField fx:id="searchWord" maxWidth="-Infinity" onKeyPressed="#keyPressed" onKeyTyped="#showAllWords" prefHeight="26.0" prefWidth="198.0" promptText="Nhập từ mày cần tìm">
+            <TextField fx:id="searchWord" maxWidth="-Infinity" onKeyPressed="#keyPressed" onKeyTyped="#showAllWords" prefHeight="26.0" prefWidth="198.0" promptText="Nhập từ cần tìm">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin></TextField>
-            <HBox prefHeight="423.0" prefWidth="706.0">
+            <HBox prefHeight="546.0" prefWidth="843.0">
                <children>
-                  <ListView fx:id="listView">
+                  <ListView fx:id="listView" onMouseClicked="#selectedWord" prefHeight="545.0" prefWidth="295.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </ListView>
-                  <WebView fx:id="definitionView" minHeight="-1.0" minWidth="-1.0" onKeyPressed="#search" prefHeight="423.0" prefWidth="486.0" />
+                  <WebView fx:id="definitionView" minHeight="-1.0" minWidth="-1.0" onKeyPressed="#search" prefHeight="545.0" prefWidth="606.0" />
                </children>
             </HBox>
          </children>

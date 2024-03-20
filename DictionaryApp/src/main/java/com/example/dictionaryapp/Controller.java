@@ -34,23 +34,28 @@ public class Controller {
     public static Set<String> set_eng2vie = data_eng2vie.keySet();
     public static final Map<String, String> data_vie2eng = Main.getV2E();
     public static Set<String> set_vie2eng = data_vie2eng.keySet();
-    //public static Map<String, List<String>> Map_eng2vie = Main.getPrefixMap_E2V();
-    //public static Map<String, List<String>> Map_vie2eng = Main.getPrefixMap_V2E();
     public static Map<String, String> data;
     public static Set<String> set;
 
-    //public static boolean first_time = true;
-    public void search(){
+    public void search() throws Exception {
         String text = searchWord.getText();
         //String lowerCasetext = text.toLowerCase();
         if (set.contains(text)) {
             definitionView.getEngine().loadContent(data.get(text), "text/html");
+            spelling();
+        }
+    }
+    public void selectedWord() throws Exception {
+        String selected = listView.getSelectionModel().getSelectedItem();
+        if(selected != null) {
+            definitionView.getEngine().loadContent(data.get(selected), "text/html");
+            searchWord.setText(selected);
+            spelling();
         }
     }
     public void keyPressed(KeyEvent e) throws Exception {
         if(e.getCode().equals(KeyCode.ENTER)) {
             search();
-            spelling();
         }
     }
     /*private Stage stage;
@@ -115,7 +120,6 @@ public class Controller {
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
     }
-
     public void change() throws IOException {
         if(choice.isSelected()) {
             myLabel.setText("Vie-Eng");
@@ -127,5 +131,4 @@ public class Controller {
             ACCENT = Languages.English_GreatBritain;
         }
     }
-
 }
