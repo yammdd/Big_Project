@@ -93,7 +93,7 @@ public class Main extends Application {
         insertToMap_eng2vie(set_eng2vie);
         insertToMap_vie2eng(set_vie2eng);
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainApp.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 870, 600);
         stage.setTitle("DictionaryApp");
         stage.setScene(scene);
         stage.show();

@@ -1,6 +1,11 @@
 package com.example.dictionaryapp;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -13,6 +18,7 @@ import java.io.*;
 import java.util.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 
 
 public class Controller {
@@ -58,18 +64,7 @@ public class Controller {
             search();
         }
     }
-    /*private Stage stage;
-    private Scene scene;
-    private Parent root;
 
-    public void switchToScene1(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }*/
     public static List<String> curr;
     public static Map<String, List<String>> prefixMap;
     public void showAllWords() {
@@ -130,5 +125,18 @@ public class Controller {
             path = "data/tts_rss_word.mp3";
             ACCENT = Languages.English_GreatBritain;
         }
+    }
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    public void switchToAdd_Delete_Word_scene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("Add_Delete.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 }

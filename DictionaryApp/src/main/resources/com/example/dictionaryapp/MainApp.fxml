@@ -43,6 +43,11 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
+                  <Button mnemonicParsing="false" onAction="#switchToAdd_Delete_Word_scene" prefWidth="80.0" text="Add/Delete">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
             <TextField fx:id="searchWord" maxWidth="-Infinity" onKeyPressed="#keyPressed" onKeyTyped="#showAllWords" prefHeight="26.0" prefWidth="198.0" promptText="Nhập từ cần tìm">
