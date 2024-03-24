@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,6 +12,16 @@ import java.util.*;
 public class Main extends Application {
     public static Map<String, String> data_eng2vie = new HashMap<>();
     public static Map<String, String> data_vie2eng = new HashMap<>();
+
+    public static List<String> list_EV = new ArrayList<>();
+    public static List<String> list_VE = new ArrayList<>();
+    public static List<String> getList_EV() {
+        return list_EV;
+    }
+
+    public static List<String> getList_VE() {
+        return list_VE;
+    }
     public void readData() throws IOException {
         FileReader fis1 = new FileReader("data/eng_vie.txt");
         FileReader fis2 = new FileReader("data/vie_eng.txt");
@@ -20,6 +29,7 @@ public class Main extends Application {
         BufferedReader br2 = new BufferedReader(fis2);
         String line1;
         while ((line1 = br1.readLine()) != null) {
+            list_EV.addLast(line1);
             String[] parts = line1.split("<html>");
             String word = parts[0];
             String definition = "<html>" + parts[1];
@@ -27,6 +37,7 @@ public class Main extends Application {
         }
         String line2;
         while ((line2 = br2.readLine()) != null) {
+            list_VE.addLast(line2);
             String[] parts = line2.split("<html>");
             String word = parts[0];
             String definition = "<html>" + parts[1];

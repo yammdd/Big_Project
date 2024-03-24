@@ -12,6 +12,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebView;
 import com.voicerss.tts.*;
 import java.io.*;
@@ -32,10 +33,13 @@ public class Controller {
     private WebView definitionView;
     @FXML
     private TextField searchWord;
+    @FXML
+    private HTMLEditor htmlEditor;
 
     public void exitProgram() {
         System.exit(0);
     }
+
     public static final Map<String, String> data_eng2vie = Main.getE2V();
     public static Set<String> set_eng2vie = data_eng2vie.keySet();
     public static final Map<String, String> data_vie2eng = Main.getV2E();
@@ -51,24 +55,27 @@ public class Controller {
             spelling();
         }
     }
+
     public void selectedWord() throws Exception {
         String selected = listView.getSelectionModel().getSelectedItem();
-        if(selected != null) {
+        if (selected != null) {
             definitionView.getEngine().loadContent(data.get(selected), "text/html");
             searchWord.setText(selected);
             spelling();
         }
     }
+
     public void keyPressed(KeyEvent e) throws Exception {
-        if(e.getCode().equals(KeyCode.ENTER)) {
+        if (e.getCode().equals(KeyCode.ENTER)) {
             search();
         }
     }
 
     public static List<String> curr;
     public static Map<String, List<String>> prefixMap;
+
     public void showAllWords() {
-        if(choice.isSelected()) {
+        if (choice.isSelected()) {
             prefixMap = Main.getPrefixMap_V2E();
             set = set_vie2eng;
             data = data_vie2eng;
@@ -91,9 +98,11 @@ public class Controller {
             listView.getItems().addAll(set);
         }
     }
+
     private static final String myKey = "40ccd1f320c549f3afc53b26046c49a4";
     public static String ACCENT = Languages.English_GreatBritain;
     public static String path = "data/tts_rss_word.mp3";
+
     public void requestDownload(String text) throws Exception {
         VoiceProvider tts = new VoiceProvider(myKey);
         VoiceParameters params = new VoiceParameters(text, ACCENT);
@@ -108,6 +117,7 @@ public class Controller {
         fos.flush();
         fos.close();
     }
+
     public void spelling() throws Exception {
         String text = searchWord.getText();
         requestDownload(text);
@@ -115,28 +125,71 @@ public class Controller {
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
     }
+
     public void change() throws IOException {
-        if(choice.isSelected()) {
+        if (choice.isSelected()) {
             myLabel.setText("Vie-Eng");
             path = "data/tts_rss_text.mp3";
             ACCENT = Languages.Vietnamese;
+            listWords = listWordsVE;
         } else {
             myLabel.setText("Eng-Vie");
             path = "data/tts_rss_word.mp3";
             ACCENT = Languages.English_GreatBritain;
+            listWords = listWordsEV;
         }
     }
-
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     public void switchToAdd_Delete_Word_scene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Add_Delete.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Test.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root, 870, 600);
         stage.setScene(scene);
         stage.show();
+    }
 
+    public void modifyWord() {
+        htmlEditor.setHtmlText("<html>" + searchWord.getText() +
+                "<br/><ul><li><b><i> Loại từ: " +
+                "</i></b><ul><li><font color='#cc0000'><b> Nghĩa của từ: " +
+                "</b></font></li></ul></li></ul></html>");
+    }
+    public void show() {
+        modifyWord();
+        showAllWords();
+    }
+    public static List<String> listWordsEV = Main.getList_EV();
+    public static List<String> listWordsVE = Main.getList_VE();
+    public static List<String> listWords;
+    public void add() throws IOException {
+        String word = searchWord.getText();
+        String definition = htmlEditor.getHtmlText().replace(" dir=\"ltr\"", "");
+        String text = word + definition;
+        listWords.addLast(text);
+        FileWriter fw = new FileWriter(path);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for (String content : listWords) {
+            bw.write(content);
+            bw.write("\n");
+        }
+        bw.close();
+        fw.close();
+    }
+    public void remove() throws IOException {
+        String selected = listView.getSelectionModel().getSelectedItem();
+        String definition = data.get(selected);
+        FileWriter fw = new FileWriter(path);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for (String content : listWords) {
+            if(!content.equals(selected+definition)) {
+                bw.write(content);
+                bw.write("\n");
+            }
+        }
+        bw.close();
+        fw.close();
     }
 }
