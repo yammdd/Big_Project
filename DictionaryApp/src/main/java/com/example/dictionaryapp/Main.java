@@ -12,13 +12,11 @@ import java.util.*;
 public class Main extends Application {
     public static Map<String, String> data_eng2vie = new HashMap<>();
     public static Map<String, String> data_vie2eng = new HashMap<>();
-
     public static List<String> list_EV = new ArrayList<>();
     public static List<String> list_VE = new ArrayList<>();
     public static List<String> getList_EV() {
         return list_EV;
     }
-
     public static List<String> getList_VE() {
         return list_VE;
     }
@@ -44,7 +42,6 @@ public class Main extends Application {
             data_vie2eng.put(word, definition);
         }
     }
-
     public static Map<String, String> getE2V(){
         return data_eng2vie;
     }
@@ -71,7 +68,6 @@ public class Main extends Application {
     }
     public static Map<String, List<String>> Map_eng2vie = new HashMap<>();
     public static Map<String, List<String>> Map_vie2eng = new HashMap<>();
-
     public void insertToMap_eng2vie(Set<String> set) {
         for (String word : set) {
             for (int i = 1; i <= word.length(); i++) {
@@ -109,7 +105,6 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
     public static void main(String[] args) {
         launch();
     }

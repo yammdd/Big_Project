@@ -30,6 +30,8 @@ public class Controller {
     @FXML
     private ListView<String> listView;
     @FXML
+    private ListView<String> historyList = new ListView<>();
+    @FXML
     private WebView definitionView;
     @FXML
     private TextField searchWord;
@@ -151,6 +153,15 @@ public class Controller {
         stage.show();
     }
 
+    public void switchToHistory_scene(ActionEvent event) throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("History.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 870, 600);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void modifyWord() {
         htmlEditor.setHtmlText("<html>" + searchWord.getText() +
                 "<br/><ul><li><b><i> Loại từ: " +
@@ -192,4 +203,59 @@ public class Controller {
         bw.close();
         fw.close();
     }
+
+    public static List<String> saveWord = new ArrayList<>();
+    public static String pathHistory;
+    public void saveWordToList() throws IOException {
+        if(choice.isSelected()) {
+            pathHistory = "data/VE_history.txt";
+        } else {
+            pathHistory = "data/EV_history.txt";
+        }
+
+        FileReader fis = new FileReader(pathHistory);
+        BufferedReader br = new BufferedReader(fis);
+        String line;
+        while ((line = br.readLine()) != null) {
+            saveWord.addLast(line);
+        }
+
+        String selected = searchWord.getText();
+        saveWord.addLast(selected);
+        historyList.getItems().addAll(saveWord);
+
+        FileWriter fw = new FileWriter(pathHistory);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for (String content : saveWord) {
+            bw.write(content);
+            bw.write("\n");
+        }
+        bw.close();
+        fw.close();
+    }
+
+    public void selectedsaveWord() throws Exception {
+
+        String selected = historyList.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            definitionView.getEngine().loadContent(data.get(selected), "text/html");
+            searchWord.setText(selected);
+        }
+    }
+
+    public void showHistory() throws IOException {
+        if(choice.isSelected()) {
+            pathHistory = "data/VE_history.txt";
+        } else {
+            pathHistory = "data/EV_history.txt";
+        }
+
+        FileReader fis = new FileReader(pathHistory);
+        BufferedReader br = new BufferedReader(fis);
+        String line;
+        while ((line = br.readLine()) != null) {
+            historyList.getItems().add(line);
+        }
+    }
+
 }
