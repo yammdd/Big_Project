@@ -1,0 +1,49 @@
+Arabic (Egypt), ar-eg, ar-eg
+Arabic (Saudi Arabia), ar-sa, ar-sa
+Bulgarian, bg, bg-bg
+Catalan, ca, ca-es
+Chinese (China), zh-cn, zh-cn
+Chinese (Hong Kong SAR), zh-hk, zh-hk
+Chinese (Taiwan), zh-tw, zh-tw
+Corsican, co, hr-hr
+Czech, cs, cs-cz
+Danish, da, da-dk
+Dutch (Belgium), nl-be, nl-be
+Dutch (Netherlands), nl-nl, nl-nl
+English (Australia), en-au, en-au
+English (Canada), en-ca, en-ca
+English (United Kingdom), en-gb, en-gb
+English (India), en, en-in
+English (Ireland), en-ie, en-ie
+English (United States), en-us, en-us
+Finnish, fi, fi-fi
+French (Canada), fr-ca, fr-ca
+French (France), fr-fr, fr-fr
+French (Switzerland), fr-ch, fr-ch
+German (Austria), de-at, de-at
+German (Switzerland), de-ch, de-ch
+German (Germany), de-de, de-de
+Greek, el, el-gr
+Hebrew, he, he-il
+Hindi, hi, hi-in
+Hungarian, hu, hu-hu
+Indonesian, id, id-id
+Italian, it, it-it
+Japanese, ja, ja-jp
+Korean, ko, ko-kr
+Malay (Malaysia), ms-my, ms-my
+Norwegian (Bokmal), nb, nb-no
+Polish, pl, pl-pl
+Portuguese (Brazil), pt-br, pt-br
+Portuguese (Portugal), pt-pt, pt-pt
+Romanian, ro, ro-ro
+Russian, ru, ru-ru
+Slovak, sk, sk-sk
+Slovenian, sl, sl-si
+Spanish (Spain), es-es, es-es
+Spanish (Mexico), es-mx, es-mx
+Swedish, sv, sv-se
+Tamil, ta, ta-in
+Thai, th, th-th
+Turkish, tr, tr-tr
+Vietnamese, vi, vi-vn

@@ -12,6 +12,9 @@ import java.util.*;
 public class Main extends Application {
     public static Map<String, String> data_eng2vie = new HashMap<>();
     public static Map<String, String> data_vie2eng = new HashMap<>();
+    public static Map<String, String> searchCode = new HashMap<>();
+    public static Map<String, String> speakCode = new HashMap<>();
+
     public static List<String> list_EV = new ArrayList<>();
     public static List<String> list_VE = new ArrayList<>();
     public static List<String> getList_EV() {
@@ -23,8 +26,10 @@ public class Main extends Application {
     public void readData() throws IOException {
         FileReader fis1 = new FileReader("data/eng_vie.txt");
         FileReader fis2 = new FileReader("data/vie_eng.txt");
+        FileReader fis = new FileReader("data/code.txt");
         BufferedReader br1 = new BufferedReader(fis1);
         BufferedReader br2 = new BufferedReader(fis2);
+        BufferedReader br = new BufferedReader(fis);
         String line1;
         while ((line1 = br1.readLine()) != null) {
             list_EV.addLast(line1);
@@ -41,6 +46,12 @@ public class Main extends Application {
             String definition = "<html>" + parts[1];
             data_vie2eng.put(word, definition);
         }
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] parts = line.split(", ");
+            searchCode.put(parts[0], parts[1]);
+            speakCode.put(parts[0], parts[2]);
+        }
     }
     public static Map<String, String> getE2V(){
         return data_eng2vie;
@@ -48,6 +59,14 @@ public class Main extends Application {
     public static Map<String, String> getV2E(){
         return data_vie2eng;
     }
+    public static Map<String, String> getSearchCode() {
+        return searchCode;
+    }
+
+    public static Map<String, String> getSpeakCode() {
+        return speakCode;
+    }
+
     public static Set<String> set_eng2vie = data_eng2vie.keySet();
     public static Set<String> set_vie2eng = data_vie2eng.keySet();
     public void sort() {

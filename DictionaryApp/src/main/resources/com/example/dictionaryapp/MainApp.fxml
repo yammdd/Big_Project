@@ -50,6 +50,7 @@
                   </Button>
                   <Button mnemonicParsing="false" onAction="#switchToHistory_scene" text="History" />
                   <Button mnemonicParsing="false" onAction="#saveWordToList" text="SaveWordToList" />
+                  <Button mnemonicParsing="false" onAction="#switchToAPI_scene" text="Button" />
                </children>
             </HBox>
             <TextField fx:id="searchWord" maxWidth="-Infinity" onKeyPressed="#keyPressed" onKeyTyped="#showAllWords" prefHeight="26.0" prefWidth="198.0" promptText="Nhập từ cần tìm">
