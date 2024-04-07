@@ -1,0 +1,39 @@
+Arabic (Egypt), ar, ar-eg
+Bulgarian, bg, bg-bg
+Catalan, ca, ca-es
+Chinese (China), zh, zh-cn
+Corsican, co, hr-hr
+Czech, cs, cs-cz
+Danish, da, da-dk
+Dutch (Belgium), nl, nl-be
+English (Australia), en, en-au
+English (Canada), en, en-ca
+English (United Kingdom), en, en-gb
+English (India), en, en-in
+English (Ireland), en, en-ie
+English (United States), en, en-us
+Finnish, fi, fi-fi
+French (France), fr, fr-fr
+German (Germany), de, de-de
+Greek, el, el-gr
+Hebrew, he, he-il
+Hindi, hi, hi-in
+Hungarian, hu, hu-hu
+Indonesian, id, id-id
+Italian, it, it-it
+Japanese, ja, ja-jp
+Korean, ko, ko-kr
+Malay (Malaysia), ms-my, ms-my
+Norwegian (Bokmal), nb, nb-no
+Polish, pl, pl-pl
+Portuguese (Portugal), pt-pt, pt-pt
+Romanian, ro, ro-ro
+Russian, ru, ru-ru
+Slovak, sk, sk-sk
+Slovenian, sl, sl-si
+Spanish (Spain), es, es-es
+Swedish, sv, sv-se
+Tamil, ta, ta-in
+Thai, th, th-th
+Turkish, tr, tr-tr
+Vietnamese, vi, vi-vn
