@@ -106,14 +106,16 @@ public class SearchController extends MainController implements Initializable {
         }
     }
     public static boolean setUS_UK = false;
-    public void US_UK() {
+    public void US_UK() throws Exception {
         if (setUS_UK) {
             label.setText("UK");
             ACCENT = Languages.English_GreatBritain;
+            requestDownload(searchWord.getText());
             setUS_UK = false;
         } else {
             label.setText("US");
             ACCENT = Languages.English_UnitedStates;
+            requestDownload((searchWord.getText()));
             setUS_UK = true;
         }
     }
@@ -164,7 +166,6 @@ public class SearchController extends MainController implements Initializable {
             setFavorite = true;
         }
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setLanguage = true;
@@ -174,9 +175,7 @@ public class SearchController extends MainController implements Initializable {
         path = "data/Voice2.mp3";
         ACCENT = Languages.English_UnitedStates;
         label.setText("US");
-        listView.getItems().addAll(set);
-        //savedPath = "data/EV_saved.txt";
-        //listWords = list_EV;
+
     }
 
 

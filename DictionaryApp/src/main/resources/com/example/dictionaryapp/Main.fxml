@@ -51,7 +51,7 @@
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="button_saved" layoutX="20.0" layoutY="298.0" onAction="#button_saved" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/style.css" text="Saved">
+            <JFXButton fx:id="button_saved" layoutX="20.0" layoutY="298.0" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/style.css" text="Saved">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -68,7 +68,6 @@ public class SettingController extends SearchController implements Initializable
         vietnamese.setSelected(false);
         english.setSelected(true);
         listWords = list_EV;
-        data = data_eng2vie;
         pathRes = "data/EV.txt";
         changeLanguageForSetting(false);
     }
@@ -77,7 +76,6 @@ public class SettingController extends SearchController implements Initializable
         english.setSelected(false);
         vietnamese.setSelected(true);
         listWords = list_VE;
-        data = data_vie2eng;
         pathRes = "data/VE.txt";
         changeLanguageForSetting(true);
 
@@ -230,7 +228,7 @@ public class SettingController extends SearchController implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pathRes = "data/EV.txt";
         listWords = list_EV;
-        data = data_eng2vie;
-        english.setSelected(true);
+        //english.setSelected(true);
+        setListEV();
     }
 }

@@ -115,11 +115,11 @@ public class MainController implements Initializable {
         borderPane.setCenter(view);
     }
 
-    public void button_saved() throws IOException {
+    /*public void button_saved() throws IOException {
         //setSavedData = true;
         AnchorPane view = FXMLLoader.load(getClass().getResource("SavedWord.fxml"));
         borderPane.setCenter(view);
-    }
+    }*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
