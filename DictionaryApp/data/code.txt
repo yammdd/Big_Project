@@ -1,39 +1,37 @@
-Arabic (Egypt), ar, ar-eg
-Bulgarian, bg, bg-bg
-Catalan, ca, ca-es
-Chinese (China), zh, zh-cn
-Corsican, co, hr-hr
-Czech, cs, cs-cz
-Danish, da, da-dk
-Dutch (Belgium), nl, nl-be
-English (Australia), en, en-au
-English (Canada), en, en-ca
-English (United Kingdom), en, en-gb
-English (India), en, en-in
-English (Ireland), en, en-ie
-English (United States), en, en-us
-Finnish, fi, fi-fi
-French (France), fr, fr-fr
-German (Germany), de, de-de
-Greek, el, el-gr
-Hebrew, he, he-il
-Hindi, hi, hi-in
-Hungarian, hu, hu-hu
-Indonesian, id, id-id
-Italian, it, it-it
-Japanese, ja, ja-jp
-Korean, ko, ko-kr
-Malay (Malaysia), ms-my, ms-my
-Norwegian (Bokmal), nb, nb-no
-Polish, pl, pl-pl
-Portuguese (Portugal), pt-pt, pt-pt
-Romanian, ro, ro-ro
-Russian, ru, ru-ru
-Slovak, sk, sk-sk
-Slovenian, sl, sl-si
-Spanish (Spain), es, es-es
-Swedish, sv, sv-se
-Tamil, ta, ta-in
-Thai, th, th-th
-Turkish, tr, tr-tr
-Vietnamese, vi, vi-vn
+Arabic (Egypt), ar, ar-eg, ara
+Bulgarian, bg, bg-bg, bul
+Catalan, ca, ca-es, cat
+Chinese (China), zh, zh-cn, chi_sim
+Czech, cs, cs-cz, ces
+Danish, da, da-dk, dan
+English (Australia), en, en-au, eng
+English (Canada), en, en-ca, eng
+English (United Kingdom), en, en-gb, eng
+English (India), en, en-in, eng
+English (Ireland), en, en-ie, eng
+English (United States), en, en-us, eng
+Finnish, fi, fi-fi, fin
+French (France), fr, fr-fr, fra
+German (Germany), de, de-de, frk
+Greek, el, el-gr, grc
+Hebrew, he, he-il, heb
+Hindi, hi, hi-in, hin
+Hungarian, hu, hu-hu, hun
+Indonesian, id, id-id, ind
+Italian, it, it-it, ita
+Japanese, ja, ja-jp, jpn
+Korean, ko, ko-kr, kor
+Malay (Malaysia), ms-my, ms-my, msa
+Norwegian (Bokmal), nb, nb-no, nor
+Polish, pl, pl-pl, pol
+Portuguese (Portugal), pt-pt, pt-pt, por
+Romanian, ro, ro-ro, ron
+Russian, ru, ru-ru, rus
+Slovak, sk, sk-sk, slk
+Slovenian, sl, sl-si, slv
+Spanish (Spain), es, es-es, spa
+Swedish, sv, sv-se, swe
+Tamil, ta, ta-in, tam
+Thai, th, th-th, tha
+Turkish, tr, tr-tr, tur
+Vietnamese, vi, vi-vn, vie

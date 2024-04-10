@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -13,17 +14,17 @@
       <TextArea fx:id="textTo" layoutX="30.0" layoutY="430.0" prefHeight="228.0" prefWidth="601.0" stylesheets="@../../../style/style.css" />
       <ComboBox fx:id="langFrom" layoutX="30.0" layoutY="61.0" prefWidth="150.0" styleClass="combo-box-base" stylesheets="@../../../style/style.css" />
       <ComboBox fx:id="langTo" layoutX="30.0" layoutY="375.0" prefWidth="150.0" styleClass="combo-box-base" stylesheets="@../../../style/style.css" />
-      <ImageView fitHeight="35.0" fitWidth="49.0" layoutX="217.0" layoutY="56.0" onMouseClicked="#spelling1" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="49.0" layoutX="200.0" layoutY="56.0" onMouseClicked="#spelling1" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/medium-volume.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="49.0" layoutX="217.0" layoutY="370.0" onMouseClicked="#spelling2" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="49.0" layoutX="200.0" layoutY="370.0" onMouseClicked="#spelling2" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/medium-volume.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="331.0" layoutY="46.0" onAction="#APISearch" prefHeight="52.0" prefWidth="162.0" styleClass="translate" stylesheets="@../../../style/style.css" text="Translate">
+      <JFXButton layoutX="469.0" layoutY="33.0" onAction="#APISearch" prefHeight="52.0" prefWidth="162.0" styleClass="translate" stylesheets="@../../../style/style.css" text="Translate">
          <graphic>
             <ImageView fitHeight="43.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -32,5 +33,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <Button fx:id="chooseFile" layoutX="279.0" layoutY="33.0" mnemonicParsing="false" onAction="#setChooseFile" text="Button" />
+      <Button layoutX="279.0" layoutY="61.0" mnemonicParsing="false" onAction="#imageToText" text="Button" />
    </children>
 </AnchorPane>

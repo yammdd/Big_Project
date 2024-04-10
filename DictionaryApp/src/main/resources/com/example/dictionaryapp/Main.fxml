@@ -27,7 +27,7 @@
                   </Label>
                </children>
             </Pane>
-            <JFXButton fx:id="button_search" layoutX="19.0" layoutY="143.0" onAction="#button_search" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/style.css" text="Search">
+            <JFXButton fx:id="button_search" layoutX="19.0" layoutY="143.0" onAction="#button_search" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/button.css" text="Search">
                <graphic>
                   <ImageView fitHeight="37.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -39,7 +39,7 @@
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="button_google" layoutX="20.0" layoutY="222.0" onAction="#button_google" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/style.css" text="Google">
+            <JFXButton fx:id="button_google" layoutX="20.0" layoutY="222.0" onAction="#button_google" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/button.css" text="Google">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -51,7 +51,7 @@
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="button_saved" layoutX="20.0" layoutY="298.0" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/style.css" text="Saved">
+            <JFXButton fx:id="button_saved" layoutX="20.0" layoutY="298.0" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/button.css" text="Saved">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -63,7 +63,7 @@
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="button_game" layoutX="20.0" layoutY="367.0" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/style.css" text="Game">
+            <JFXButton fx:id="button_game" layoutX="20.0" layoutY="367.0" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/button.css" text="Game">
                <graphic>
                   <ImageView fitHeight="37.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -75,7 +75,7 @@
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="button_setting" layoutX="19.0" layoutY="425.0" onAction="#button_setting" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/style.css" text="Setting">
+            <JFXButton fx:id="button_setting" layoutX="19.0" layoutY="425.0" onAction="#button_setting" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/button.css" text="Setting">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -18,6 +18,7 @@ public class MainController implements Initializable {
     public static Map<String, String> data_vie2eng = new HashMap<>();
     public static Map<String, String> searchCode = new HashMap<>();
     public static Map<String, String> speakCode = new HashMap<>();
+    public static Map<String, String> traineddata = new HashMap<>();
     public static List<String> list_EV = new ArrayList<>();
     public static List<String> list_VE = new ArrayList<>();
     public static Set<String> set_eng2vie = data_eng2vie.keySet();
@@ -74,6 +75,7 @@ public class MainController implements Initializable {
             String[] parts = line.split(", ");
             searchCode.put(parts[0], parts[1]);
             speakCode.put(parts[0], parts[2]);
+            traineddata.put(parts[0], parts[3]);
         }
     }
 

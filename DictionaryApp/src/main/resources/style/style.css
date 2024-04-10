@@ -18,68 +18,7 @@
     -fx-border-color: #748CF1;
 }
 
-#button_search {
-    -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
-    -fx-text-fill: #FFFFFF;
-}
 
-#button_search:hover {
-    -fx-background-color: #2a2e57;
-    -fx-border-color: #2a2e57;
-}
-
-#button_search:focused {
-    -fx-background-color: #0a1236;
-    -fx-border-color: #0a1236;
-}
-#button_google {
-    -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
-    -fx-text-fill: #FFFFFF;
-}
-
-#button_google:hover {
-    -fx-background-color: #2a2e57;
-    -fx-border-color: #2a2e57;
-}
-
-#button_google:focused {
-    -fx-background-color: #0a1236;
-    -fx-border-color: #0a1236;
-}
-#button_saved {
-    -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
-    -fx-text-fill: #FFFFFF;
-}
-#button_saved:hover {
-    -fx-background-color: #2a2e57;
-    -fx-border-color: #2a2e57;
-}
-
-#button_saved:focused {
-    -fx-background-color: #0a1236;
-    -fx-border-color: #0a1236;
-}
-#button_game {
-    -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
-    -fx-text-fill: #FFFFFF;
-}
-#button_game:hover {
-    -fx-background-color: #2a2e57;
-    -fx-border-color: #2a2e57;
-}
-
-#button_game:focused {
-    -fx-background-color: #0a1236;
-    -fx-border-color: #0a1236;
-}
 
 .speak_button {
     -fx-border-width: 2px 2px 2px 2px;
@@ -91,21 +30,6 @@
     -fx-text-fill: #000000;
 }
 
-#button_setting {
-    -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
-    -fx-text-fill: #FFFFFF;
-}
-#button_setting:hover {
-    -fx-background-color: #2a2e57;
-    -fx-border-color: #2a2e57;
-}
-
-#button_setting:focused {
-    -fx-background-color: #0a1236;
-    -fx-border-color: #0a1236;
-}
 .textField {
     -fx-background-color: #EAEEF4;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;

@@ -4,13 +4,21 @@ import com.voicerss.tts.AudioCodec;
 import com.voicerss.tts.AudioFormat;
 import com.voicerss.tts.VoiceParameters;
 import com.voicerss.tts.VoiceProvider;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -31,8 +39,11 @@ public class GoogleController extends MainController implements Initializable {
     protected TextArea textFrom;
     @FXML
     protected TextArea textTo;
-
+    @FXML
+    protected Button chooseFile;
+    private Stage stage;
     public static Set<String> language = searchCode.keySet();
+    public static String filePath;
 
     public void requestDownload(String text, String ACCENT, String path) throws Exception {
         VoiceProvider tts = new VoiceProvider(myKey);
@@ -104,6 +115,7 @@ public class GoogleController extends MainController implements Initializable {
             lang_From = searchCode.get(langFrom.getValue());
         }
         String lang_To = searchCode.get(langTo.getValue());
+        textTo.setWrapText(true);
         textTo.setText(googleTranslate(lang_From, lang_To, before));
         if (!langFrom.getValue().equals("DetectLanguage")){
             requestDownload(textFrom.getText(), speakCode.get(langFrom.getValue()), path1);
@@ -112,6 +124,43 @@ public class GoogleController extends MainController implements Initializable {
     }
 
 
+    public void setChooseFile() throws Exception {
+
+        FileChooser.ExtensionFilter ex1 = new FileChooser.ExtensionFilter("Image Files", "*.png");
+        FileChooser.ExtensionFilter ex2 = new FileChooser.ExtensionFilter("all Files", "*.*");
+        chooseFile.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.getExtensionFilters().addAll(ex1, ex2);
+                fileChooser.setTitle("Open My File");
+                fileChooser.setInitialDirectory(new File("D:/"));
+                File selectedFile = fileChooser.showOpenDialog(stage);
+                if (selectedFile != null) {
+                    filePath = selectedFile.getPath();
+                    System.out.println("filePath = " + filePath);
+                }
+            }
+        });
+    }
+
+    public void imageToText() throws Exception {
+
+        Tesseract tesseract = new Tesseract();
+        try {
+            //change your path
+            tesseract.setDatapath("D:\\GitHub\\Big_Project\\DictionaryApp\\traineddata");
+            String lang = traineddata.get(langFrom.getValue());
+            tesseract.setLanguage(lang);
+            String text = tesseract.doOCR(new File(filePath));
+            textFrom.setText((text));
+            APISearch();
+        }
+        catch (TesseractException e) {
+            e.printStackTrace();
+        }
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         sortLang();

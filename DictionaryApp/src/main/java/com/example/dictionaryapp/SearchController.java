@@ -166,6 +166,7 @@ public class SearchController extends MainController implements Initializable {
             setFavorite = true;
         }
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setLanguage = true;
