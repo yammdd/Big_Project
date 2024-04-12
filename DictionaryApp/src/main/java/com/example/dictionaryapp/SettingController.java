@@ -23,10 +23,6 @@ import javax.mail.internet.MimeMessage;
 public class SettingController extends SearchController implements Initializable {
 
     @FXML
-    private TextField searchWord;
-    @FXML
-    private ListView<String> listView;
-    @FXML
     private HTMLEditor htmlEditor;
     @FXML
     private RadioButton english;
@@ -181,7 +177,6 @@ public class SettingController extends SearchController implements Initializable
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.ssl.protocols", "TLSv1.2");
-
         Authenticator auth = new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -191,20 +186,13 @@ public class SettingController extends SearchController implements Initializable
         };
         Session session = Session.getInstance(props, auth);
         MimeMessage msg = new MimeMessage(session);
-
         try {
             msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
-
             //msg.setFrom(from);
-
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
-
             msg.setSubject(subject);
-
             msg.setSentDate(new Date());
-
             msg.setContent(content, "text/HTML; charset=UTF-8");
-
             Transport.send(msg);
             return true;
         } catch (Exception e) {
@@ -226,9 +214,6 @@ public class SettingController extends SearchController implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        pathRes = "data/EV.txt";
-        listWords = list_EV;
-        //english.setSelected(true);
         setListEV();
     }
 }

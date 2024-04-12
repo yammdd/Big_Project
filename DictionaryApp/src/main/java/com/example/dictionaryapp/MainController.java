@@ -5,10 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 import java.net.URL;
 import java.util.*;
 
@@ -21,12 +19,13 @@ public class MainController implements Initializable {
     public static Map<String, String> traineddata = new HashMap<>();
     public static List<String> list_EV = new ArrayList<>();
     public static List<String> list_VE = new ArrayList<>();
+    public static List<String> list_EV_saved = new ArrayList<>();
+    public static List<String> list_VE_saved = new ArrayList<>();
     public static Set<String> set_eng2vie = data_eng2vie.keySet();
     public static Set<String> set_vie2eng = data_vie2eng.keySet();
     public static Map<String, List<String>> Map_eng2vie = new HashMap<>();
     public static Map<String, List<String>> Map_vie2eng = new HashMap<>();
 
-    public static boolean setSavedData = false;
     @FXML
     private BorderPane borderPane;
 
@@ -67,6 +66,45 @@ public class MainController implements Initializable {
 
     }
 
+    public void readDataSaved() throws IOException {
+        FileReader fis1 = new FileReader("data/EV_saved.txt");
+        FileReader fis2 = new FileReader("data/VE_saved.txt");
+
+        BufferedReader br1 = new BufferedReader(fis1);
+        BufferedReader br2 = new BufferedReader(fis2);
+
+        String line1;
+        while ((line1 = br1.readLine()) != null) {
+            list_EV_saved.addLast(line1);
+        }
+        String line2;
+        while ((line2 = br2.readLine()) != null) {
+            list_VE_saved.addLast(line2);
+        }
+    }
+
+    public void writeEVSavedWord() throws IOException {
+        FileWriter fr = new FileWriter("data/EV_saved.txt");
+        BufferedWriter bw = new BufferedWriter(fr);
+        for (String word : list_EV_saved) {
+            bw.write(word);
+            bw.write("\n");
+        }
+        bw.close();
+        fr.close();
+    }
+
+    public void writeVESavedWord() throws IOException {
+        FileWriter fr = new FileWriter("data/VE_saved.txt");
+        BufferedWriter bw = new BufferedWriter(fr);
+        for (String word : list_VE_saved) {
+            bw.write(word);
+            bw.write("\n");
+        }
+        bw.close();
+        fr.close();
+    }
+
     public void readKeyCode() throws IOException {
         FileReader fis = new FileReader("data/code.txt");
         BufferedReader br = new BufferedReader(fis);
@@ -101,7 +139,6 @@ public class MainController implements Initializable {
 
 
     public void button_search() throws IOException {
-        //setSavedData = false;
         AnchorPane view = FXMLLoader.load(getClass().getResource("Search.fxml"));
         borderPane.setCenter(view);
     }
@@ -112,21 +149,20 @@ public class MainController implements Initializable {
     }
 
     public void button_setting() throws IOException {
-        //setSavedData = false;
         AnchorPane view = FXMLLoader.load(getClass().getResource("Setting.fxml"));
         borderPane.setCenter(view);
     }
 
-    /*public void button_saved() throws IOException {
-        //setSavedData = true;
+    public void button_saved() throws IOException {
         AnchorPane view = FXMLLoader.load(getClass().getResource("SavedWord.fxml"));
         borderPane.setCenter(view);
-    }*/
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             readData();
             readKeyCode();
+            readDataSaved();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

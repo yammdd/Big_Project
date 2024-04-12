@@ -134,7 +134,8 @@ public class GoogleController extends MainController implements Initializable {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.getExtensionFilters().addAll(ex1, ex2);
                 fileChooser.setTitle("Open My File");
-                fileChooser.setInitialDirectory(new File("D:/"));
+                // change your path
+                fileChooser.setInitialDirectory(new File("D:\\GitHub\\Big_Project\\DictionaryApp\\ImageToText"));
                 File selectedFile = fileChooser.showOpenDialog(stage);
                 if (selectedFile != null) {
                     filePath = selectedFile.getPath();

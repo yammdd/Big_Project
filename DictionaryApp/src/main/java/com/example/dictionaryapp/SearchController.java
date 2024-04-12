@@ -34,7 +34,6 @@ public class SearchController extends MainController implements Initializable {
     Image pic2 = new Image(getClass().getResourceAsStream("images/viet-eng.png"));
     Image pic3 = new Image(getClass().getResourceAsStream("images/icons8_Star_Filled_52px.png"));
     Image pic4 = new Image(getClass().getResourceAsStream("images/icons8_Star_52px.png"));
-
     public static boolean setLanguage = false;
     public static boolean setFavorite = false;
     public static Map<String, String> data = data_eng2vie;
@@ -57,6 +56,7 @@ public class SearchController extends MainController implements Initializable {
             definitionView.getEngine().loadContent(data.get(text), "text/html");
             requestDownload(text);
         }
+        savedShow();
     }
 
     public void selectedWord() throws Exception {
@@ -66,6 +66,7 @@ public class SearchController extends MainController implements Initializable {
             searchWord.setText(selected);
             requestDownload(selected);
         }
+        savedShow();
     }
 
     public void changeLanguage() {
@@ -105,24 +106,42 @@ public class SearchController extends MainController implements Initializable {
             data = data_eng2vie;
         }
     }
+
     public static boolean setUS_UK = false;
     public void US_UK() throws Exception {
-        if (setUS_UK) {
-            label.setText("UK");
-            ACCENT = Languages.English_GreatBritain;
-            requestDownload(searchWord.getText());
-            setUS_UK = false;
+        if (!label.getText().equals("VIE")) {
+            if (setUS_UK) {
+                label.setText("UK");
+                ACCENT = Languages.English_GreatBritain;
+                setUS_UK = false;
+            } else {
+                label.setText("US");
+                ACCENT = Languages.English_UnitedStates;
+                setUS_UK = true;
+            }
+            if (!searchWord.getText().equals("")) requestDownload(searchWord.getText());
+        }
+    }
+
+    public void savedShow() {
+        String text = searchWord.getText();
+        if (label.getText().equals("VIE")) {
+            if (!list_VE_saved.contains(text)) {
+                favorite.setImage(pic4);
+            } else {
+                favorite.setImage(pic3);
+            }
         } else {
-            label.setText("US");
-            ACCENT = Languages.English_UnitedStates;
-            requestDownload((searchWord.getText()));
-            setUS_UK = true;
+            if (!list_EV_saved.contains(text)) {
+                favorite.setImage(pic4);
+            } else {
+                favorite.setImage(pic3);
+            }
         }
     }
 
     public void showAllWords() {
         String text = searchWord.getText();
-
         if (text.length() == 1) {
             listView.getItems().removeAll(set);
             curr = prefixMap.getOrDefault(text, new ArrayList<>());
@@ -157,28 +176,30 @@ public class SearchController extends MainController implements Initializable {
         mediaPlayer.play();
     }
 
-    public void favorite_click() {
-        if (setFavorite) {
-            favorite.setImage(pic3);
-            setFavorite = false;
+    public void favorite_click() throws IOException {
+        String text = searchWord.getText();
+        favorite.setImage(pic3);
+        if (label.getText().equals("VIE")) {
+            if (!list_VE_saved.contains(text)) {
+                list_VE_saved.addLast(text);
+                writeVESavedWord();
+            }
         } else {
-            favorite.setImage(pic4);
-            setFavorite = true;
+            if (!list_EV_saved.contains(text)) {
+                list_EV_saved.addLast(text);
+                writeEVSavedWord();
+            }
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setLanguage = true;
-        prefixMap = Map_eng2vie;
-        set = set_eng2vie;
-        data = data_eng2vie;
-        path = "data/Voice2.mp3";
-        ACCENT = Languages.English_UnitedStates;
-        label.setText("US");
-
+        changeLanguage();
+        try {
+            US_UK();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
-
-
 
 }

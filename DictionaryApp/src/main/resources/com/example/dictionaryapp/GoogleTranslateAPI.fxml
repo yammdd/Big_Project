@@ -24,7 +24,7 @@
             <Image url="@images/medium-volume.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="469.0" layoutY="33.0" onAction="#APISearch" prefHeight="52.0" prefWidth="162.0" styleClass="translate" stylesheets="@../../../style/style.css" text="Translate">
+      <JFXButton layoutX="469.0" layoutY="34.0" onAction="#APISearch" prefHeight="52.0" prefWidth="162.0" styleClass="translate" stylesheets="@../../../style/style.css" text="Translate">
          <graphic>
             <ImageView fitHeight="43.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -33,7 +33,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Button fx:id="chooseFile" layoutX="279.0" layoutY="33.0" mnemonicParsing="false" onAction="#setChooseFile" text="Button" />
-      <Button layoutX="279.0" layoutY="61.0" mnemonicParsing="false" onAction="#imageToText" text="Button" />
+      <Button layoutX="279.0" layoutY="61.0" mnemonicParsing="false" onAction="#imageToText" styleClass="imageToText" stylesheets="@../../../style/style.css" text="Image To Text" />
+      <JFXButton fx:id="chooseFile" layoutX="279.0" layoutY="34.0" onAction="#setChooseFile" prefHeight="26.0" prefWidth="91.0" styleClass="chooseFile" stylesheets="@../../../style/style.css" text="Choose File" />
    </children>
 </AnchorPane>

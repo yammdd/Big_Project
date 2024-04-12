@@ -80,3 +80,15 @@
 }
 
 
+.chooseFile {
+    -fx-background-color: #b9b9b9;
+    -fx-text-fill: #000000;
+}
+
+.imageToText {
+    -fx-background-color: #b9b9b9;
+    -fx-text-fill: #000000;
+    -fx-border-radius: 5px;
+}
+
+

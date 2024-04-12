@@ -11,21 +11,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.SavedWordController">
    <children>
       <Pane layoutX="1.0" prefHeight="206.0" prefWidth="700.0">
          <children>
-            <JFXButton layoutX="14.0" layoutY="93.0" prefHeight="59.0" prefWidth="66.0" text=" ">
+            <JFXButton layoutX="14.0" layoutY="93.0" onAction="#changeLang" prefHeight="59.0" prefWidth="66.0" text=" ">
                <graphic>
-                  <ImageView fx:id="imageView" fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="view" fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/eng-viet.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <TextField layoutX="6.0" layoutY="165.0" prefHeight="34.0" prefWidth="211.0" styleClass="textField" stylesheets="@../../../style/style.css" />
+            <TextField fx:id="textField" layoutX="6.0" layoutY="165.0" prefHeight="34.0" prefWidth="211.0" styleClass="textField" stylesheets="@../../../style/style.css" />
             <Label layoutX="222.0" layoutY="14.0" prefHeight="47.0" prefWidth="178.0" text="Definition" textFill="#0e54c4">
                <font>
                   <Font name="System Bold" size="36.0" />
@@ -33,7 +32,7 @@
             </Label>
             <Pane layoutX="229.0" layoutY="165.0" prefHeight="34.0" prefWidth="82.0" styleClass="speak_button" stylesheets="@../../../style/style.css">
                <children>
-                  <JFXButton layoutY="-1.0" prefHeight="36.0" prefWidth="48.0" text=" ">
+                  <JFXButton layoutY="-1.0" onAction="#USUK" prefHeight="36.0" prefWidth="48.0" text=" ">
                      <graphic>
                         <Label fx:id="label" prefHeight="17.0" prefWidth="36.0" text="US">
                            <font>
@@ -42,7 +41,7 @@
                         </Label>
                      </graphic>
                   </JFXButton>
-                  <JFXButton layoutX="42.0" layoutY="-1.0" prefHeight="36.0" prefWidth="37.0" text=" ">
+                  <JFXButton layoutX="42.0" layoutY="-1.0" onAction="#spellingSaved" prefHeight="36.0" prefWidth="37.0" text=" ">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -53,11 +52,11 @@
                   </JFXButton>
                </children>
             </Pane>
-            <JFXButton layoutX="629.0" layoutY="162.0" text=" ">
+            <JFXButton layoutX="629.0" layoutY="162.0" onAction="#unsaved" text=" ">
                <graphic>
-                  <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="star" fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icons8_Star_52px.png" />
+                        <Image url="@images/icons8_Star_Filled_52px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -73,7 +72,7 @@
             </JFXButton>
          </children>
       </Pane>
-      <ListView layoutX="6.0" layoutY="208.0" prefHeight="492.0" prefWidth="206.0" styleClass="listView" stylesheets="@../../../style/style.css" />
-      <WebView layoutX="214.0" layoutY="208.0" prefHeight="492.0" prefWidth="486.0" />
+      <ListView fx:id="listSaved" layoutX="6.0" layoutY="208.0" onMouseClicked="#chooseWord" prefHeight="492.0" prefWidth="206.0" styleClass="listView" stylesheets="@../../../style/style.css" />
+      <WebView fx:id="definitionView" layoutX="214.0" layoutY="208.0" prefHeight="492.0" prefWidth="486.0" />
    </children>
 </AnchorPane>
