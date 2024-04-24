@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -25,11 +26,10 @@ public class SavedWordController extends SearchController implements Initializab
     @FXML
     private ImageView view;
     @FXML
-    private ImageView star;
-    @FXML
     private Label label;
+    @FXML
+    private Pane UK;
     public static boolean setLang = false;
-    public static boolean setUSUK = false;
     private static final String myKey = "40ccd1f320c549f3afc53b26046c49a4";
     private String accent;
     private String Path;
@@ -41,30 +41,16 @@ public class SavedWordController extends SearchController implements Initializab
             listSaved.getItems().addAll(list_VE_saved);
             setLang = false;
             label.setText("VIE");
+            UK.setVisible(false);
         } else {
             view.setImage(pic1);
             listSaved.getItems().removeAll(list_VE_saved);
             listSaved.getItems().addAll(list_EV_saved);
             setLang = true;
             label.setText("US");
+            UK.setVisible(true);
         }
     }
-
-    public void USUK() throws Exception {
-        if (!label.getText().equals("VIE")) {
-            if (setUSUK) {
-                label.setText("UK");
-                accent = Languages.English_GreatBritain;
-                setUSUK = false;
-            } else {
-                label.setText("US");
-                accent = Languages.English_UnitedStates;
-                setUSUK = true;
-            }
-            if (!textField.getText().equals("")) requestDownloadSaved(textField.getText());
-        }
-    }
-
 
     public void chooseWord() throws Exception {
         String selected = listSaved.getSelectionModel().getSelectedItem();
@@ -72,13 +58,12 @@ public class SavedWordController extends SearchController implements Initializab
         if (!setLang) {
             definitionView.getEngine().loadContent(data_vie2eng.get(selected), "text/html");
             accent = Languages.Vietnamese;
-            Path = "data/Voice1.mp3";
+            Path = "audio/Voice1.mp3";
         } else {
             definitionView.getEngine().loadContent(data_eng2vie.get(selected), "text/html");
             accent = Languages.English_UnitedStates;
-            Path = "data/Voice2.mp3";
+            Path = "audio/Voice2.mp3";
         }
-        requestDownloadSaved(selected);
     }
 
     public void requestDownloadSaved(String text) throws Exception {
@@ -96,14 +81,25 @@ public class SavedWordController extends SearchController implements Initializab
         fos.close();
     }
 
-    public void spellingSaved() {
+    public void spellingSaved() throws Exception {
+        String selected = textField.getText();
+        requestDownloadSaved(selected);
         Media sound = new Media(new File(Path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
     }
 
-    public void unsaved() throws IOException {
+    public void spellingSavedUK() throws Exception {
+        String selected = textField.getText();
+        accent = Languages.English_GreatBritain;
+        requestDownloadSaved(selected);
+        Media sound = new Media(new File(Path).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+        accent = Languages.English_UnitedStates;
+    }
 
+    public void unsaved() throws IOException {
         String text = textField.getText();
         if (label.getText().equals("VIE")) {
             listSaved.getItems().removeAll(list_VE_saved);
@@ -122,10 +118,7 @@ public class SavedWordController extends SearchController implements Initializab
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         changeLang();
-        try {
-            USUK();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        x.setVisible(false);
+        l.setVisible(false);
     }
 }

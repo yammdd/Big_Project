@@ -1,0 +1,50 @@
+1;What’s ______ name? Her name is Quynh.;my;his;her;their;C
+2;Nam has ______new cars.;a;some;any;an;B
+3;Phuong and Mai ______ have any toys.;not;don't;aren't;doesn't;B
+4;_____ are you?;What;How;How’s;What’s;B
+5;These books are _____ the table.;at;on;in;above;B
+6;My brothers ______ four trains.;have;has;like;fly;A
+7;My birthday is in ______;America;May;England;Viet Nam;B
+8;______ night, Mommy!;Fine;Glad;Sleep;Good;D
+9;See you ______!;next;so;bye;later;D
+10;What is ______ favourite food? - She likes beef;her;hers;she;shes;A
+11;______ you like some water, Phong? - Yes, please.;What;Where;Would;Which;C
+12;A: What would you like to drink? B: ______;Coffee;I like noodles;I’d like to drink;Chicken;A
+13;Do you have a bird? - No, I ______;have;don't;am;are;B
+14;I have ______ hamsters.;a;any;some;much;C
+15;James ______ balls;am;is;has;like;C
+16;Dung and Linh have two ______;planes;boat;ship;car;A
+17;Is Jack ______?;run;running;runing;runs;B
+18;My sister is twenty ______ old.;nice;year;years;two;C
+19;Alan is ______ a picture in the art room;painting;paint;paints;painted;A
+20;They have a lot ______ fun in the park;in;of;with;on;B
+21;____ were the children? - They were in the park.;When;What;Why;Where;D
+22;What is your favorite subject? - I like IT. I'd like to _____ a software engineer.;becomes;become;became;becames;B
+23;Where is your school? - ______ on Pham Van Dong Street.;It;Its;It's;Its is;C
+24;What ____ is the skirt? - It's blue.;color;blue;red;black;A
+25;What does your mother do? - She's a _____. She works on a farm.;farmer;worker;teacher;doctor;A
+26;Let's go to the bookshop! I want to ____ some books.;make;buy;write;learn;B
+27;My brother likes _____ bread and drinking milk for breakfast.;wearing;eats;eating;go;C
+28;He is _____ Vietnam.;come;from;before;become;B
+29;What's the matter _____ you?;on;of;with;in;C
+30;It is not hot _____ the winter.;in;on;at;from;A
+31;How many _____ do you have at school? - I have four.;sabjects;subjects;subjekts;subjecst;B
+32;What class is he in? - He's in ______ 4A.;subject;school;grade;class;D
+33;Where is your sister? - She's in the living room. She's _____ TV.;making;doing;watching;learing;C
+34;We like ______ photographs.;take;takes;taking;to take;C
+35;How often do you have _____ food? - I have it everyday.;Vietnam;Vietnams;Vietnamese;Vietnameses;C
+36;What's your _____ food? - I like chicken.;favorite;good;nice;small;A
+37;My brother drives a bus. He is a bus _____ .;businessman;driver;farmer;teacher;B
+38;What ______ is it? - It's 7.30 a.m;color;nationality;time;name;C
+39;What ______ is this? - It's an elephant.;crocodile;animal;fruit;tree;B
+40;He is very happy _____ the New Year is coming.;because;or;but;and;A
+41;Choose a word that is synonymous with the above phrase:" Pop The Question ";marry;ask;propose;betroth;C
+42;Choose a word that is synonymous with the above phrase:" Here and There ";everywhere;somewhere;everyday;everyone;A
+43;Choose a word that is synonymous with the above phrase:" Break a leg ";unfortunately;luckily;awfully;terribly;B
+44;Choose a word that is synonymous with the above phrase:" Hit the books ";study;sleep;watch;eat;A
+45;Choose a word that is synonymous with the above phrase:" Every now and then ";always;usually;sometimes;never;C
+46;Choose a word that is synonymous with the above phrase:" Once in a blue moon";rare;common;popular;usual;A
+47;Choose a word that is synonymous with the above phrase:" All at once ";slowly;suddenly;gradually;rushly;B
+48;Choose a word that is synonymous with the above phrase:" Blow one's trumpet ";lie;talk;chat;speak;A
+49;Choose a word that is synonymous with the above phrase:" Off one's head ";crazy;pretty;generous;nice;A
+50;Choose a word that is synonymous with the above phrase:" Pull one's weight ";laziness;effort;hard;difficulty;B

@@ -31,11 +31,15 @@ public class SettingController extends SearchController implements Initializable
     @FXML
     private TextField email;
     @FXML
-    private TextArea getSubject;
+    private TextField getSubject;
     @FXML
     private TextArea getContent;
+
     private  String pathRes;
     public static List<String> listWords;
+    private static final String from = "java.application.from@gmail.com";
+    private static final String to = "java.application.to@gmail.com";
+    private static final String password = "rnrraicahugtfbbw";
 
     public void search() throws Exception {
         String text = searchWord.getText();
@@ -55,8 +59,8 @@ public class SettingController extends SearchController implements Initializable
     }
 
     public void showAddWord() {
-        htmlEditor.setHtmlText("<html>" + searchWord.getText() + "<br/><ul><li><b><i> Part of speech: " +
-                "</i></b><ul><li><font color='#233fdb'><b> Definition: " +
+        htmlEditor.setHtmlText("<html>" + searchWord.getText() + "<br/><ul><li><b><i>Part of speech:" +
+                "</i></b><ul><li><font color='#233fdb'><b>Definition:" +
                 "</b></font></li></ul></li></ul></html>");
     }
 
@@ -74,9 +78,7 @@ public class SettingController extends SearchController implements Initializable
         listWords = list_VE;
         pathRes = "data/VE.txt";
         changeLanguageForSetting(true);
-
     }
-
 
     public void buttonDelete() throws IOException {
         String word = searchWord.getText();
@@ -115,7 +117,10 @@ public class SettingController extends SearchController implements Initializable
             alert.setContentText("This word is existed!");
             alert.showAndWait();
         } else {
-            String definition = htmlEditor.getHtmlText().replace(" dir=\"ltr\"", "");
+            String definition = htmlEditor.getHtmlText()
+                    .replace(" dir=\"ltr\"", "")
+                    .replace("Part of speech:", "")
+                    .replace("Definition", "");
             String text = word + definition;
             listWords.addLast(text);
             FileWriter fw = new FileWriter(pathRes);
@@ -166,10 +171,6 @@ public class SettingController extends SearchController implements Initializable
         }
     }
 
-    private static final String from = "java.application.from@gmail.com";
-    private static final String to = "java.application.to@gmail.com";
-    private static final String password = "rnrraicahugtfbbw";
-
     public static boolean sendEmail(String subject, String content) {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -215,5 +216,7 @@ public class SettingController extends SearchController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setListEV();
+        x.setVisible(false);
+        l.setVisible(false);
     }
 }

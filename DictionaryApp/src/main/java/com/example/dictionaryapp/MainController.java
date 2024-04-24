@@ -1,17 +1,22 @@
 package com.example.dictionaryapp;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
 import java.util.*;
 
 public class MainController implements Initializable {
-    
+
+    @FXML
+    private BorderPane borderPane;
+
     public static Map<String, String> data_eng2vie = new HashMap<>();
     public static Map<String, String> data_vie2eng = new HashMap<>();
     public static Map<String, String> searchCode = new HashMap<>();
@@ -25,9 +30,77 @@ public class MainController implements Initializable {
     public static Set<String> set_vie2eng = data_vie2eng.keySet();
     public static Map<String, List<String>> Map_eng2vie = new HashMap<>();
     public static Map<String, List<String>> Map_vie2eng = new HashMap<>();
+    public static List<Quiz> quizList = new ArrayList<>();
+    public static int getHighestScores;
 
-    @FXML
-    private BorderPane borderPane;
+    static class Quiz {
+        private int question_id;
+        private String question;
+        private List<String> answers;
+        private String correctAnswer;
+
+        public Quiz(int question_id, String question, List<String> answers, String correctAnswer) {
+            this.question_id = question_id;
+            this.question = question;
+            this.answers = answers;
+            this.correctAnswer = correctAnswer;
+        }
+
+        public int getQuestion_id() {
+            return question_id;
+        }
+
+        public void setQuestion_id(int question_id) {
+            this.question_id = question_id;
+        }
+
+        public String getQuestion() {
+            return question;
+        }
+
+        public void setQuestion(String question) {
+            this.question = question;
+        }
+
+        public List<String> getAnswers() {
+            return answers;
+        }
+
+        public void setAnswers(List<String> answers) {
+            this.answers = answers;
+        }
+
+        public String getCorrectAnswer() {
+            return correctAnswer;
+        }
+
+        public void setCorrectAnswer(String correctAnswer) {
+            this.correctAnswer = correctAnswer;
+        }
+    }
+
+    public void loadQuiz() throws IOException {
+        FileReader fr = new FileReader("data/Quiz.txt");
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        while ((line = br.readLine()) != null) {
+            //System.out.println(line);
+            String[] split = line.split(";");
+            List<String> answers = new ArrayList<>();
+            answers.add(split[2]);
+            answers.add(split[3]);
+            answers.add(split[4]);
+            answers.add(split[5]);
+            Quiz quiz = new Quiz(Integer.parseInt(split[0]), split[1], answers, split[6]);
+            quizList.add(quiz);
+        }
+    }
+
+    public void loadScore() throws IOException {
+        FileReader fr = new FileReader("data/savedScores.txt");
+        BufferedReader br = new BufferedReader(fr);
+        getHighestScores = Integer.parseInt(br.readLine());
+    }
 
     public void sort() {
         List<String> list1 = new ArrayList<>(set_eng2vie);
@@ -43,10 +116,8 @@ public class MainController implements Initializable {
     public void readData() throws IOException {
         FileReader fis1 = new FileReader("data/EV.txt");
         FileReader fis2 = new FileReader("data/VE.txt");
-
         BufferedReader br1 = new BufferedReader(fis1);
         BufferedReader br2 = new BufferedReader(fis2);
-
         String line1;
         while ((line1 = br1.readLine()) != null) {
             list_EV.addLast(line1);
@@ -63,16 +134,13 @@ public class MainController implements Initializable {
             String definition = "<html>" + parts[1];
             data_vie2eng.put(word, definition);
         }
-
     }
 
     public void readDataSaved() throws IOException {
         FileReader fis1 = new FileReader("data/EV_saved.txt");
         FileReader fis2 = new FileReader("data/VE_saved.txt");
-
         BufferedReader br1 = new BufferedReader(fis1);
         BufferedReader br2 = new BufferedReader(fis2);
-
         String line1;
         while ((line1 = br1.readLine()) != null) {
             list_EV_saved.addLast(line1);
@@ -127,6 +195,7 @@ public class MainController implements Initializable {
             }
         }
     }
+
     public void insertToMap_vie2eng(Set<String> set) {
         for (String word : set) {
             for (int i = 1; i <= word.length(); i++) {
@@ -136,7 +205,6 @@ public class MainController implements Initializable {
             }
         }
     }
-
 
     public void button_search() throws IOException {
         AnchorPane view = FXMLLoader.load(getClass().getResource("Search.fxml"));
@@ -157,12 +225,20 @@ public class MainController implements Initializable {
         AnchorPane view = FXMLLoader.load(getClass().getResource("SavedWord.fxml"));
         borderPane.setCenter(view);
     }
+
+    public void button_game() throws IOException {
+        AnchorPane view = FXMLLoader.load(getClass().getResource("Game.fxml"));
+        borderPane.setCenter(view);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             readData();
             readKeyCode();
             readDataSaved();
+            loadQuiz();
+            loadScore();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

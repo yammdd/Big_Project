@@ -1,17 +1,43 @@
-.button {
+.button_main {
     -fx-border-width: 2px 2px 2px 2px;
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
     -fx-text-fill: #FFFFFF;
 }
 
-.button:hover {
+.button_main:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    transition: -fx-background-color 0.5s ease,
+    -fx-scale-x 0.5s ease,
+    -fx-scale-y 0.5s ease;
     -fx-background-color: #2a2e57;
     -fx-border-color: #2a2e57;
 }
 
-.button:focused {
+/*.button:focused {
     -fx-background-color: #0a1236;
     -fx-border-color: #0a1236;
+}*/
+
+.next {
+    -fx-background-color: #f1efef;
+    -fx-background-radius: 10px;
+    -fx-border-color: #8f8e8e;
+    -fx-border-radius: 10px;
 }
 
+.next:hover {
+    -fx-background-color: #e1e0e0;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    transition: -fx-background-color 0.5s ease,
+    -fx-scale-x 0.5s ease,
+    -fx-scale-y 0.5s ease;
+}
+
+.tof {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #000000;
+}

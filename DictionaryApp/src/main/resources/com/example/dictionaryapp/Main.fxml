@@ -13,81 +13,81 @@
    <left>
       <AnchorPane prefHeight="680.0" prefWidth="220.0" styleClass="side_pane" stylesheets="@../../../style/style.css">
          <children>
-            <Pane layoutX="7.0" layoutY="27.0" prefHeight="66.0" prefWidth="200.0" styleClass="inner_pane" stylesheets="@../../../style/style.css">
+            <Pane layoutX="10.0" layoutY="23.0" prefHeight="66.0" prefWidth="200.0" styleClass="inner_pane" stylesheets="@../../../style/style.css">
                <children>
                   <ImageView fitHeight="57.0" fitWidth="56.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/grammar.png" />
+                        <Image url="@images/dictionary.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="82.0" layoutY="16.0" prefHeight="35.0" prefWidth="104.0" text="Dictionary">
+                  <Label layoutX="82.0" layoutY="16.0" prefHeight="35.0" prefWidth="104.0" text="Dictionary" textFill="#f7f7f7">
                      <font>
                         <Font name="Century Gothic" size="20.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <JFXButton fx:id="button_search" layoutX="19.0" layoutY="143.0" onAction="#button_search" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/button.css" text="Search">
+            <JFXButton fx:id="button_search" layoutX="23.0" layoutY="142.0" onAction="#button_search" prefHeight="50.0" prefWidth="174.0" styleClass="button_main" stylesheets="@../../../style/button.css" text="Search">
                <graphic>
-                  <ImageView fitHeight="37.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/search.png" />
+                        <Image url="@images/magnifying-glass.png" />
                      </image>
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="button_google" layoutX="20.0" layoutY="222.0" onAction="#button_google" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/button.css" text="Google">
+            <JFXButton fx:id="button_google" layoutX="23.0" layoutY="215.0" onAction="#button_google" prefHeight="50.0" prefWidth="174.0" styleClass="button_main" stylesheets="@../../../style/button.css" text="Google">
                <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/translate.png" />
+                        <Image url="@images/google.png" />
                      </image>
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="button_saved" layoutX="20.0" layoutY="298.0" onAction="#button_saved" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/button.css" text="Saved">
+            <JFXButton fx:id="button_saved" layoutX="23.0" layoutY="287.0" onAction="#button_saved" prefHeight="50.0" prefWidth="174.0" styleClass="button_main" stylesheets="@../../../style/button.css" text="Bookmark">
                <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/history.png" />
                      </image>
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="button_game" layoutX="20.0" layoutY="367.0" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/button.css" text="Game">
+            <JFXButton fx:id="button_game" layoutX="23.0" layoutY="356.0" onAction="#button_game" prefHeight="50.0" prefWidth="174.0" styleClass="button_main" stylesheets="@../../../style/button.css" text="Game">
                <graphic>
-                  <ImageView fitHeight="37.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/console.png" />
                      </image>
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="button_setting" layoutX="19.0" layoutY="425.0" onAction="#button_setting" prefHeight="50.0" prefWidth="174.0" stylesheets="@../../../style/button.css" text="Setting">
+            <JFXButton fx:id="button_setting" layoutX="23.0" layoutY="424.0" onAction="#button_setting" prefHeight="50.0" prefWidth="174.0" styleClass="button_main" stylesheets="@../../../style/button.css" text="Setting">
                <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/setting.png" />
                      </image>
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </JFXButton>
-            <ImageView fitHeight="150.0" fitWidth="182.0" layoutX="32.0" layoutY="504.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="182.0" layoutX="35.0" layoutY="513.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/student.png" />
                </image>

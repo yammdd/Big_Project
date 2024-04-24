@@ -11,23 +11,25 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<AnchorPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.SettingController">
+<AnchorPane prefHeight="700.0" prefWidth="700.0" styleClass="test_background" stylesheets="@../../../style/option.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.SettingController">
    <children>
       <TabPane layoutX="14.0" layoutY="14.0" prefHeight="678.0" prefWidth="669.0" stylesheets="@../../../style/Setting.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab text="Modify, Add, Delete words">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background" stylesheets="@../../../style/style.css">
                      <children>
-                        <TextField fx:id="searchWord" layoutX="29.0" layoutY="25.0" onKeyTyped="#showAllWords" prefHeight="34.0" prefWidth="211.0" styleClass="textField" stylesheets="@../../../style/style.css" />
-                        <ListView fx:id="listView" layoutX="31.0" layoutY="68.0" onMousePressed="#selectedWord" prefHeight="192.0" prefWidth="206.0" styleClass="listView" stylesheets="@../../../style/style.css" />
+                        <TextField fx:id="searchWord" layoutX="31.0" layoutY="26.0" onKeyTyped="#showAllWords" prefHeight="32.0" prefWidth="206.0" promptText="Search..." styleClass="textField" stylesheets="@../../../style/style.css" />
+                        <ListView fx:id="listView" layoutX="31.0" layoutY="63.0" onMousePressed="#selectedWord" prefHeight="192.0" prefWidth="206.0" styleClass="listView" stylesheets="@../../../style/style.css" />
                         <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="-2.0" layoutY="257.0" prefHeight="398.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="257.0" />
-                        <JFXButton layoutX="618.0" layoutY="211.0" onAction="#buttonSave" text=" ">
+                        <JFXButton layoutX="618.0" layoutY="206.0" onAction="#buttonSave" text=" ">
                            <graphic>
-                              <ImageView fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="32.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/save.png" />
                                  </image>
@@ -52,17 +54,20 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton layoutX="190.0" layoutY="25.0" onAction="#search" text=" ">
-                           <graphic>
-                              <ImageView fitHeight="26.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/search.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </JFXButton>
-                        <JFXRadioButton fx:id="english" layoutX="277.0" layoutY="83.0" onAction="#setListEV" text="English" />
-                        <JFXRadioButton fx:id="vietnamese" layoutX="277.0" layoutY="115.0" onAction="#setListVE" text="Vietnamese" />
+                        <JFXRadioButton fx:id="english" layoutX="277.0" layoutY="83.0" onAction="#setListEV" text="English">
+                           <selectedColor>
+                              <Color red="0.10196078568696976" green="0.4117647111415863" blue="0.7058823704719543" />
+                           </selectedColor>
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font></JFXRadioButton>
+                        <JFXRadioButton fx:id="vietnamese" layoutX="277.0" layoutY="115.0" onAction="#setListVE" text="Vietnamese">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                           <selectedColor>
+                              <Color red="0.10196078568696976" green="0.4117647111415863" blue="0.7058823704719543" />
+                           </selectedColor></JFXRadioButton>
                         <JFXButton layoutX="517.0" layoutY="209.0" onAction="#showAddWord" text=" ">
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
@@ -74,7 +79,22 @@
                         </JFXButton>
                         <Label layoutX="264.0" layoutY="17.0" prefHeight="50.0" prefWidth="165.0" text="Dictionary">
                            <font>
-                              <Font name="System Bold" size="30.0" />
+                              <Font name="Arial Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="19.0" fitWidth="17.0" layoutX="213.0" layoutY="34.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/search-interface-symbol.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="19.0" fitWidth="22.0" layoutX="184.0" layoutY="33.0" onMouseClicked="#cancelX" pickOnBounds="true" preserveRatio="true" fx:id="x">
+                           <image>
+                              <Image url="@images/cross-small.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="l" alignment="CENTER" layoutX="203.0" layoutY="22.0" text="|" textFill="#b9b2b2">
+                           <font>
+                              <Font size="25.0" />
                            </font>
                         </Label>
                      </children></AnchorPane>
@@ -82,35 +102,35 @@
           </Tab>
             <Tab text="Feedback">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background" stylesheets="@../../../style/style.css">
                      <children>
-                        <TextArea fx:id="getContent" layoutX="141.0" layoutY="243.0" prefHeight="206.0" prefWidth="490.0" />
-                        <JFXButton layoutX="535.0" layoutY="75.0" onAction="#send" text=" ">
-                           <graphic>
-                              <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/paper-plane.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </JFXButton>
-                        <TextArea fx:id="getSubject" layoutX="141.0" layoutY="151.0" prefHeight="44.0" prefWidth="184.0" />
-                        <Label layoutX="45.0" layoutY="149.0" prefHeight="46.0" prefWidth="86.0" text="Subject:" textAlignment="CENTER">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="45.0" layoutY="243.0" prefHeight="46.0" prefWidth="96.0" text="Content:" textAlignment="CENTER">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="email" layoutX="141.0" layoutY="81.0" prefHeight="26.0" prefWidth="328.0" promptText="Not require" />
-                        <Label layoutX="43.0" layoutY="71.0" prefHeight="46.0" prefWidth="99.0" text="Your email:" textAlignment="CENTER">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
+                        <Pane layoutX="96.0" layoutY="68.0" prefHeight="494.0" prefWidth="523.0" styleClass="get_in_touch" stylesheets="@../../../style/Setting.css">
+                           <children>
+                              <JFXButton layoutX="50.0" layoutY="441.0" onAction="#send" prefHeight="39.0" prefWidth="128.0" styleClass="submit" stylesheets="@../../../style/Setting.css" text="Submit" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="18.0" />
+                                 </font></JFXButton>
+                              <TextField fx:id="email" layoutX="50.0" layoutY="64.0" prefHeight="45.0" prefWidth="420.0" promptText="Your Email" styleClass="for_email" stylesheets="@../../../style/Setting.css">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="getSubject" layoutX="50.0" layoutY="141.0" prefHeight="45.0" prefWidth="420.0" promptText="Subject" styleClass="for_email" stylesheets="@../../../style/Setting.css">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="getContent" layoutX="50.0" layoutY="219.0" prefHeight="190.0" prefWidth="420.0" promptText="Write Message..." styleClass="for_email" stylesheets="@../../../style/Setting.css" wrapText="true">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></TextArea>
+                              <Label layoutX="52.0" layoutY="18.0" prefHeight="29.0" prefWidth="137.0" text="GET IN TOUCH">
+                                 <font>
+                                    <Font name="Arial Black" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
                      </children></AnchorPane>
               </content>
             </Tab>

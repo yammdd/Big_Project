@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
@@ -11,68 +10,67 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.SavedWordController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" styleClass="test_background" stylesheets="@../../../style/option.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.SavedWordController">
    <children>
       <Pane layoutX="1.0" prefHeight="206.0" prefWidth="700.0">
          <children>
-            <JFXButton layoutX="14.0" layoutY="93.0" onAction="#changeLang" prefHeight="59.0" prefWidth="66.0" text=" ">
-               <graphic>
-                  <ImageView fx:id="view" fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+            <TextField fx:id="textField" layoutX="243.0" layoutY="41.0" prefHeight="34.0" prefWidth="443.0" promptText="Search ..." styleClass="textField" stylesheets="@../../../style/style.css" />
+            <Pane layoutX="229.0" layoutY="165.0" prefHeight="34.0" prefWidth="88.0" styleClass="speak_button" stylesheets="@../../../style/style.css">
+               <children>
+                  <Label fx:id="label" layoutX="6.0" layoutY="3.0" prefHeight="17.0" prefWidth="36.0" text="US" textFill="#1d5fa6">
+                     <font>
+                        <Font name="Century Gothic Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="54.0" layoutY="3.0" onMouseClicked="#spellingSaved" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/eng-viet.png" />
+                        <Image url="@images/audio.png" />
                      </image>
                   </ImageView>
-               </graphic>
-            </JFXButton>
-            <TextField fx:id="textField" layoutX="6.0" layoutY="165.0" prefHeight="34.0" prefWidth="211.0" styleClass="textField" stylesheets="@../../../style/style.css" />
-            <Label layoutX="222.0" layoutY="14.0" prefHeight="47.0" prefWidth="178.0" text="Definition" textFill="#0e54c4">
-               <font>
-                  <Font name="System Bold" size="36.0" />
-               </font>
-            </Label>
-            <Pane layoutX="229.0" layoutY="165.0" prefHeight="34.0" prefWidth="82.0" styleClass="speak_button" stylesheets="@../../../style/style.css">
-               <children>
-                  <JFXButton layoutY="-1.0" onAction="#USUK" prefHeight="36.0" prefWidth="48.0" text=" ">
-                     <graphic>
-                        <Label fx:id="label" prefHeight="17.0" prefWidth="36.0" text="US">
-                           <font>
-                              <Font name="Century Gothic Bold" size="22.0" />
-                           </font>
-                        </Label>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton layoutX="42.0" layoutY="-1.0" onAction="#spellingSaved" prefHeight="36.0" prefWidth="37.0" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/medium-volume.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
                </children>
             </Pane>
-            <JFXButton layoutX="629.0" layoutY="162.0" onAction="#unsaved" text=" ">
-               <graphic>
-                  <ImageView fx:id="star" fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+            <Pane fx:id="UK" layoutX="330.0" layoutY="165.0" prefHeight="34.0" prefWidth="88.0" styleClass="speak_button" stylesheets="@../../../style/style.css">
+               <children>
+                  <Label layoutX="6.0" layoutY="3.0" prefHeight="17.0" prefWidth="36.0" text="UK" textFill="#1d5fa6">
+                     <font>
+                        <Font name="Century Gothic Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="54.0" layoutY="3.0" onMouseClicked="#spellingSavedUK" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icons8_Star_Filled_52px.png" />
+                        <Image url="@images/audio.png" />
                      </image>
                   </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton layoutX="172.0" layoutY="166.0" prefHeight="34.0" prefWidth="40.0" text=" ">
-               <graphic>
-                  <ImageView fitHeight="26.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/search.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
+               </children>
+            </Pane>
+            <ImageView fx:id="view" fitHeight="36.0" fitWidth="36.0" layoutX="199.0" layoutY="40.0" onMouseClicked="#changeLang" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/eng-viet.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="star" fitHeight="33.0" fitWidth="34.0" layoutX="641.0" layoutY="167.0" onMouseClicked="#unsaved" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8_Star_Filled_52px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="17.0" layoutX="660.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/search-interface-symbol.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <ListView fx:id="listSaved" layoutX="6.0" layoutY="208.0" onMouseClicked="#chooseWord" prefHeight="492.0" prefWidth="206.0" styleClass="listView" stylesheets="@../../../style/style.css" />
-      <WebView fx:id="definitionView" layoutX="214.0" layoutY="208.0" prefHeight="492.0" prefWidth="486.0" />
+      <ListView fx:id="listSaved" layoutX="2.0" layoutY="208.0" onMouseClicked="#chooseWord" prefHeight="485.0" prefWidth="214.0" styleClass="listView" stylesheets="@../../../style/style.css" />
+      <WebView fx:id="definitionView" layoutX="220.0" layoutY="207.0" prefHeight="486.0" prefWidth="475.0" />
+      <ImageView fitHeight="28.0" fitWidth="18.0" layoutX="616.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" fx:id="x">
+         <image>
+            <Image url="@images/cross-small.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="l" alignment="CENTER" layoutX="643.0" layoutY="38.0" text="|" textFill="#b9b2b2">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

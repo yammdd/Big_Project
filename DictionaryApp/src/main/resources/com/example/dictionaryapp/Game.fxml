@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="700.0" styleClass="test_background" stylesheets="@../../../style/option.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.GameController">
+   <children>
+      <Label fx:id="question_text" alignment="CENTER" layoutX="41.0" layoutY="114.0" prefHeight="154.0" prefWidth="624.0" text=" " wrapText="true">
+         <font>
+            <Font name="Century Gothic" size="28.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="option_a" layoutX="37.0" layoutY="306.0" onAction="#ClickedA" prefHeight="60.0" prefWidth="300.0" styleClass="option" stylesheets="@../../../style/option.css" text=" " wrapText="true">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="option_d" layoutX="374.0" layoutY="409.0" onAction="#ClickedD" prefHeight="60.0" prefWidth="300.0" styleClass="option" stylesheets="@../../../style/option.css" text=" " wrapText="true">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="option_c" layoutX="37.0" layoutY="409.0" onAction="#ClickedC" prefHeight="60.0" prefWidth="300.0" styleClass="option" stylesheets="@../../../style/option.css" text=" " wrapText="true">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="option_b" layoutX="374.0" layoutY="307.0" onAction="#ClickedB" prefHeight="60.0" prefWidth="300.0" styleClass="option" stylesheets="@../../../style/option.css" text=" " wrapText="true">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="A" fitHeight="35.0" fitWidth="35.0" layoutX="49.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/A.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="B" fitHeight="35.0" fitWidth="35.0" layoutX="389.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/B.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="C" fitHeight="35.0" fitWidth="35.0" layoutX="49.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/C.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="D" fitHeight="35.0" fitWidth="35.0" layoutX="389.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/D.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="426.0" layoutY="27.0" prefHeight="35.0" prefWidth="249.0" styleClass="score_pane" stylesheets="@../../../style/style.css">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/medal.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/medal.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="highest_score" layoutX="33.0" prefHeight="35.0" prefWidth="186.0" text="Highest score: ">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <JFXButton layoutX="309.0" layoutY="513.0" onAction="#setDefault" prefHeight="42.0" prefWidth="94.0" styleClass="next" stylesheets="@../../../style/button.css" text=" Next   ">
+         <font>
+            <Font name="Century Gothic Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="16.0" fitWidth="25.0" layoutX="381.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/angle-right.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="current_score" layoutX="456.0" layoutY="69.0" prefHeight="26.0" prefWidth="133.0" text="Score:">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelTimer" layoutX="87.0" layoutY="24.0" prefHeight="42.0" prefWidth="52.0" text=" ">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="42.0" fitWidth="52.0" layoutX="28.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/clock.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="36.0" layoutY="82.0" onMouseClicked="#restartTimer" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/restart.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -4,14 +4,14 @@ import com.voicerss.tts.AudioCodec;
 import com.voicerss.tts.AudioFormat;
 import com.voicerss.tts.VoiceParameters;
 import com.voicerss.tts.VoiceProvider;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
@@ -29,8 +29,8 @@ import java.util.*;
 public class GoogleController extends MainController implements Initializable {
 
     private static final String myKey = "40ccd1f320c549f3afc53b26046c49a4";
-    private static final String path1 = "data/tts_rss_word.mp3";
-    private static final String path2 = "data/tts_rss_text.mp3";
+    private static final String path1 = "audio/tts_rss_word.mp3";
+    private static final String path2 = "audio/tts_rss_text.mp3";
     @FXML
     protected ComboBox<String> langFrom;
     @FXML
@@ -41,9 +41,29 @@ public class GoogleController extends MainController implements Initializable {
     protected TextArea textTo;
     @FXML
     protected Button chooseFile;
+    @FXML
+    private Label LabelLangFrom;
+    @FXML
+    private Label LabelLangTo;
+
     private Stage stage;
     public static Set<String> language = searchCode.keySet();
     public static String filePath;
+
+    public void transfer () {
+        if (!langFrom.getValue().equals("DetectLanguage")) {
+            String a = langFrom.getValue();
+            String b = langTo.getValue();
+            String c = textFrom.getText();
+            String d = textTo.getText();
+            langFrom.setValue(b);
+            langTo.setValue(a);
+            textFrom.setWrapText(true);
+            textFrom.setText(d);
+            textTo.setText(c);
+        }
+
+    }
 
     public void requestDownload(String text, String ACCENT, String path) throws Exception {
         VoiceProvider tts = new VoiceProvider(myKey);
@@ -53,14 +73,11 @@ public class GoogleController extends MainController implements Initializable {
         params.setBase64(false);
         params.setSSML(false);
         params.setRate(0);
-
         byte[] voice = tts.speech(params);
         FileOutputStream fos = new FileOutputStream(path);
         fos.write(voice, 0, voice.length);
         fos.flush();
         fos.close();
-
-
     }
 
     public void spelling1() throws Exception {
@@ -71,6 +88,7 @@ public class GoogleController extends MainController implements Initializable {
             alert.setContentText("Not Supported");
             alert.showAndWait();
         } else {
+            requestDownload(textFrom.getText(), speakCode.get(langFrom.getValue()), path1);
             Media sound = new Media(new File(path1).toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
             mediaPlayer.play();
@@ -78,7 +96,7 @@ public class GoogleController extends MainController implements Initializable {
     }
 
     public void spelling2() throws Exception {
-
+        requestDownload(textTo.getText(), speakCode.get(langTo.getValue()), path2);
         Media sound = new Media(new File(path2).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
@@ -91,7 +109,8 @@ public class GoogleController extends MainController implements Initializable {
     }
 
     public static String googleTranslate(String langFrom, String langTo, String text) throws IOException {
-        String urlScript = "https://script.google.com/macros/s/AKfycbzPu6w845r212es2r8ybkizWt8GGClVT6OwNuPHXZU5lF5ttH1PAoZFpwb0jT0Pr8Ys_g/exec" +
+        String urlScript = "https://script.google.com/macros/s/" +
+                "AKfycbzPu6w845r212es2r8ybkizWt8GGClVT6OwNuPHXZU5lF5ttH1PAoZFpwb0jT0Pr8Ys_g/exec" +
                 "?q=" + URLEncoder.encode(text, "UTF-8") +
                 "&target=" + langTo +
                 "&source=" + langFrom;
@@ -117,15 +136,9 @@ public class GoogleController extends MainController implements Initializable {
         String lang_To = searchCode.get(langTo.getValue());
         textTo.setWrapText(true);
         textTo.setText(googleTranslate(lang_From, lang_To, before));
-        if (!langFrom.getValue().equals("DetectLanguage")){
-            requestDownload(textFrom.getText(), speakCode.get(langFrom.getValue()), path1);
-        }
-        requestDownload(textTo.getText(), speakCode.get(langTo.getValue()), path2);
     }
 
-
-    public void setChooseFile() throws Exception {
-
+    public void setChooseFile() {
         FileChooser.ExtensionFilter ex1 = new FileChooser.ExtensionFilter("Image Files", "*.png");
         FileChooser.ExtensionFilter ex2 = new FileChooser.ExtensionFilter("all Files", "*.*");
         chooseFile.setOnAction(new EventHandler<ActionEvent>() {
@@ -135,18 +148,23 @@ public class GoogleController extends MainController implements Initializable {
                 fileChooser.getExtensionFilters().addAll(ex1, ex2);
                 fileChooser.setTitle("Open My File");
                 // change your path
-                fileChooser.setInitialDirectory(new File("D:\\GitHub\\Big_Project\\DictionaryApp\\ImageToText"));
+                fileChooser.setInitialDirectory(new File("D:\\GitHub" +
+                        "\\Big_Project\\DictionaryApp\\ImageToText"));
                 File selectedFile = fileChooser.showOpenDialog(stage);
                 if (selectedFile != null) {
                     filePath = selectedFile.getPath();
                     System.out.println("filePath = " + filePath);
+                    try {
+                        imageToText();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         });
     }
 
     public void imageToText() throws Exception {
-
         Tesseract tesseract = new Tesseract();
         try {
             //change your path
@@ -168,5 +186,21 @@ public class GoogleController extends MainController implements Initializable {
         langTo.getItems().addAll(language);
         langFrom.getItems().addAll(language);
         langFrom.getItems().addFirst("DetectLanguage");
+        langFrom.valueProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (newValue != null) {
+                    LabelLangFrom.setText(newValue);
+                }
+            }
+        });
+        langTo.valueProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (newValue != null) {
+                    LabelLangTo.setText(newValue);
+                }
+            }
+        });
     }
 }
