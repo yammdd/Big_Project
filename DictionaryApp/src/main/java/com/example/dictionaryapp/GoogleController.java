@@ -58,7 +58,6 @@ public class GoogleController extends MainController implements Initializable {
             String d = textTo.getText();
             langFrom.setValue(b);
             langTo.setValue(a);
-            textFrom.setWrapText(true);
             textFrom.setText(d);
             textTo.setText(c);
         }
@@ -134,7 +133,6 @@ public class GoogleController extends MainController implements Initializable {
             lang_From = searchCode.get(langFrom.getValue());
         }
         String lang_To = searchCode.get(langTo.getValue());
-        textTo.setWrapText(true);
         textTo.setText(googleTranslate(lang_From, lang_To, before));
     }
 

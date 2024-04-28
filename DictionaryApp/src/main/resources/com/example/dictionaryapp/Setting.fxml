@@ -20,7 +20,7 @@
    <children>
       <TabPane layoutX="14.0" layoutY="14.0" prefHeight="678.0" prefWidth="669.0" stylesheets="@../../../style/Setting.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Modify, Add, Delete words">
+          <Tab text="Add, Delete, Edit">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background" stylesheets="@../../../style/style.css">
                      <children>

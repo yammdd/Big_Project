@@ -20,9 +20,9 @@
                         <Image url="@images/dictionary.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="82.0" layoutY="16.0" prefHeight="35.0" prefWidth="104.0" text="Dictionary" textFill="#f7f7f7">
+                  <Label layoutX="82.0" layoutY="16.0" prefHeight="35.0" prefWidth="80.0" text="BlueLin" textFill="#f7f7f7">
                      <font>
-                        <Font name="Century Gothic" size="20.0" />
+                        <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Label>
                </children>
@@ -36,7 +36,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="20.0" />
+                  <Font name="Arial" size="20.0" />
                </font>
             </JFXButton>
             <JFXButton fx:id="button_google" layoutX="23.0" layoutY="215.0" onAction="#button_google" prefHeight="50.0" prefWidth="174.0" styleClass="button_main" stylesheets="@../../../style/button.css" text="Google">
@@ -48,7 +48,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="20.0" />
+                  <Font name="Arial" size="20.0" />
                </font>
             </JFXButton>
             <JFXButton fx:id="button_saved" layoutX="23.0" layoutY="287.0" onAction="#button_saved" prefHeight="50.0" prefWidth="174.0" styleClass="button_main" stylesheets="@../../../style/button.css" text="Bookmark">
@@ -60,7 +60,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="20.0" />
+                  <Font name="Arial" size="20.0" />
                </font>
             </JFXButton>
             <JFXButton fx:id="button_game" layoutX="23.0" layoutY="356.0" onAction="#button_game" prefHeight="50.0" prefWidth="174.0" styleClass="button_main" stylesheets="@../../../style/button.css" text="Game">
@@ -72,7 +72,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="20.0" />
+                  <Font name="Arial" size="20.0" />
                </font>
             </JFXButton>
             <JFXButton fx:id="button_setting" layoutX="23.0" layoutY="424.0" onAction="#button_setting" prefHeight="50.0" prefWidth="174.0" styleClass="button_main" stylesheets="@../../../style/button.css" text="Setting">
@@ -84,7 +84,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="20.0" />
+                  <Font name="Arial" size="20.0" />
                </font>
             </JFXButton>
             <ImageView fitHeight="150.0" fitWidth="182.0" layoutX="35.0" layoutY="513.0" pickOnBounds="true" preserveRatio="true">
