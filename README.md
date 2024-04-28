@@ -9,6 +9,7 @@
 5. [Usage](#usage)
 6. [Project status](#status)
 7. [Installation](#installation)
+8. [Notes](#notes)
 
 # Author <a name="author"></a>
 
@@ -26,7 +27,7 @@ Group: Disable Disposal
 - The application also provides interactive games for users to enjoy while enhancing their learning experience effectively.
 
 <p align="center">
-<img width="640" height="480" src="">
+<img width="640" height="480" src="https://github.com/Yammn/Big_Project/blob/dan/DictionaryApp/ImageToText/Picture2.png">
 </p>
 
 # Features <a name="features"></a>
@@ -45,14 +46,14 @@ Group: Disable Disposal
 # UML Diagram <a name="uml"></a>
 
 <p align="center">
-<img width="640" height="480" src="----link-here----">
+<img width="640" height="480" src="https://imgur.com/a/G2Lkwoi">
 </p>
 
 # Usage <a name="usage"></a>
 
-- Video hướng dẫn sử dụng tại [Youtube](link - here).
+- YouTube tutorial video(up coming).
 <p align="center">
-<img width="640" height="480" src="----link-here----">
+<img width="640" height="480" src="https://github.com/Yammn/Big_Project/blob/dan/DictionaryApp/ImageToText/Picture1.png">
 </p>
 
 # Project status <a name="status"></a>
@@ -63,9 +64,13 @@ Group: Disable Disposal
 
 # Installation <a name="installation"></a>
 
-- "Install JDK 21 from [here](https://www.oracle.com/java/technologies/downloads/#java21), then you can use IntelliJ IDEA to run Java programs.
+- Install JDK 21 from [here](https://www.oracle.com/java/technologies/downloads/#java21), then you can use IntelliJ IDEA to run Java programs.
 
 1. Clone the project from the repository.
 2. Open the project in the IDE.
 3. Import file lib into project.
 4. Go to Main.java and run it.
+
+# Notes <a name="notes"></a>
+
+The application is written for educational purposes.
