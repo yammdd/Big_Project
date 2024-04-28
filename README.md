@@ -27,7 +27,7 @@ Group: Disable Disposal
 - The application also provides interactive games for users to enjoy while enhancing their learning experience effectively.
 
 <p align="center">
-<img width="640" height="480" src="https://github.com/Yammn/Big_Project/blob/dan/DictionaryApp/ImageToText/Picture2.png">
+<img width="640" height="480" src="https://i.imgur.com/HF777bz.png">
 </p>
 
 # Features <a name="features"></a>
@@ -46,14 +46,14 @@ Group: Disable Disposal
 # UML Diagram <a name="uml"></a>
 
 <p align="center">
-<img width="640" height="480" src="https://imgur.com/a/G2Lkwoi">
+<img width="640" height="480" src="https://i.imgur.com/75xD1xF.png">
 </p>
 
 # Usage <a name="usage"></a>
 
 - YouTube tutorial video(up coming).
 <p align="center">
-<img width="640" height="480" src="https://github.com/Yammn/Big_Project/blob/dan/DictionaryApp/ImageToText/Picture1.png">
+<img width="640" height="480" src="https://i.imgur.com/TuU11VI.png">
 </p>
 
 # Project status <a name="status"></a>
