@@ -171,7 +171,7 @@ public class GoogleController extends MainController implements Initializable {
             tesseract.setLanguage(lang);
             String text = tesseract.doOCR(new File(filePath));
             textFrom.setText((text));
-            APISearch();
+            //APISearch();
         }
         catch (TesseractException e) {
             e.printStackTrace();

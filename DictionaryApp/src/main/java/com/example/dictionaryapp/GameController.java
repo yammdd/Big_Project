@@ -78,7 +78,7 @@ public class GameController extends MainController implements Initializable {
 
     public void setDefault() {
         Random random = new Random();
-        int questionId = random.nextInt(50) + 1;
+        int questionId = random.nextInt(180) + 1;
         Quiz randomQuiz = getQuiz(questionId);
         if (randomQuiz != null) {
             question_text.setText(randomQuiz.getQuestion());

@@ -51,7 +51,7 @@ Group: Disable Disposal
 
 # Usage <a name="usage"></a>
 
-- YouTube tutorial video(up coming).
+- YouTube preview video(up coming).
 <p align="center">
 <img width="640" height="480" src="https://i.imgur.com/TuU11VI.png">
 </p>

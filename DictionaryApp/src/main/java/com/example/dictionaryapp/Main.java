@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+
 import java.io.IOException;
 
 public class Main extends Application {
@@ -14,6 +16,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 920, 700);
         stage.setTitle("BlueLin");
         stage.getIcons().add(new Image("Icon.jpg"));
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

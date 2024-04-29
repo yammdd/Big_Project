@@ -48,3 +48,133 @@
 48;Choose a word that is synonymous with the above phrase:" Blow one's trumpet ";lie;talk;chat;speak;A
 49;Choose a word that is synonymous with the above phrase:" Off one's head ";crazy;pretty;generous;nice;A
 50;Choose a word that is synonymous with the above phrase:" Pull one's weight ";laziness;effort;hard;difficulty;B
+51;The sun is at its strongest at ______ ;dawn;midnight;midday;sunset;C
+52;It is ______ to offer your guests something to drink;secretive;customary;poisonous;shy;B
+53;A/An ______ is a person who represents his country all over the world;diplomat;jurnalist;actor;musician;A
+54;I really admire Charles Dickens as a novelist as his writing ______ is unique;sailor;journalist;style;conduct;C
+55;James Thomas graduated in law and worked for a short time as a ______ ;journalist;lawyer;sailor;diplomat;D
+56;Early black and white photos show people in ______ clothes;most recent;modern;up-to-date;old-fashioned;D
+57;London has a/an ______ of 557 mm of rain each year;average;number;ability;water;A
+58;The system of rules that people in a country or place must obey is called ______ ;law;custom;convention;tradition;A
+59;I sent my friend an email with photo as a/an ______ ;attraction;attack;challenge;attachment;D
+60;Hamdi is ______ and cannot walk;deaf;blend;unable;disabled;D
+61; ______ is 12 o'clock in the day, but midnight is 12 o'clock at night;Morning;Night;Midday;Noon;C
+62;My father does the same things every day.He likes to have ______ ;root;work;routine;way;C
+63;Olivia came from a poor ______ of Cairo;district;country;city;capital;A
+64;My brother wants to be a lawyer when he graduates.So, he's studying ______ at university;maths;law;literature;medicine;B
+65;William was one of the first heart transplant ______ ;heroes;pioneers;champions;sergeants;B
+66;In my grandfather's village, they still follow the same traditional ______ that he used to follow when he was a boy;positions;collections;attachments;customs;D
+67;Haqqi ______ in 1992;dyed;dead;died;death;C
+68;My sister loves modern clothes and buys very ______ dresses;fashions;fashioning;fashionable;old-fashioned;C
+69;My parents gave me a ______ of modern short stories for my birthday;collect;collection;collected;collecting;B
+70;Yehia Haqqi was an important twentieth-century ______ ;write;writer;writing;written;B
+71;My mother has a _______ that children learn best by playing games;believe;believer;belief;believed;C
+72;Although Emma has a/an _______,she is very good at sports;disability;ability;disabled;enabled;A
+73;My friend won a prize in a/an _______ competition.He wrote a good poem;article;poetry;play;novel;B
+74;When i was at school,I won a poetry writing _______ ;race;competition;game;article;B
+75;Scientists are paid to _______ new medicines every year to help people;attach;publish;take;develop;D
+76;The time he spent in France,Italy,Turkey and Libya gave him ______ he later used in his writing;expressions;experts;experiments;experiences;D
+77;A/An _______ is an area of a city or country;poem;organisation;district;earthquake;C
+78;A/An _______ is someone whose job is to type letters,arrange meetings.In an office;secretary;interviewer;publisher;writer;A
+79;A/An _______ is something you attach to or send with an email;bestseller;attachment;device;equipment;B
+80;To be _______ is to be unable to understand something clearly;confused;confusing;pioneered;pioneering;A
+81; _______ are things that people do because they are traditional;Laws;Collections;Customs;Competitions;C
+82;A/An ______ person is someone who can't use part of their body;established;confused;disabled;secretarial;C
+83;No sooner ______ the noise than we rushed to the spot;we had heard;we did hear;had we heard;we heard;C
+84;They _______ to spend the feast with us every year until we moved;used;have used;are used;use;A
+85;Maya _______ the fruit carefully before she bought it;checking;has checked;had checked;checks;C
+86;To _______ is to demand that something should be done;attach;confuse;develop;insist;D
+87;Wael _______ on a plane before he flew to Amman;was never being;had never been;has never been;never was;B
+88;Something that is ______ is not modern and not fashionable any more;renewable;fashionable;modern;old-fashioned;D
+89;A ______ is one of the first people to do something that others will continue;beginner;bystander;pioneer;biologist;C
+90; ______ means poems in general;Poetry;Novel;Drama;Fiction;A
+91;A ______ is a way of doing or making something that is typical of a particular person,group or period;stool;style;steel;slim;B
+92;My wife is _______ of South Valley University;a graduate;graduated;graduation;grade;A
+93;It is very important to take short ______ for drinks during work hours;attachments;breaks;averages;routines;B
+94;Ava hasn't got much _______ in teaching English.She graduated a year ago;expert;experiment;experience;exploration;C
+95;As soon as a book is _______,it becomes available for readers to buy;publish;publishing;publisher;published;D
+96;The instructions to use this mobile are very ______ I don't understand them at all;average;confusing;available;confused;B
+97;Do you hava a ______ routine during the summer holiday;fixed;fixing;fix;fox;A
+98;You have ______ two mistakes in the test;given;taken;made;done;C
+99;Ali ______ a good job when he made that new table;did;made;baked;got;A
+100;I write from nine in the morning till three in the afternoon,with a ______ break for coffee at midday;tens of minute;ten minutes';ten-minute's;ten-minute;D
+101;Through literature,I can explore unusual or different situations,thus ______ my horizons;widening;deepening;publishing;narrowing;A
+102;Looking at the computer screen for a long time _______ me a headache;takes;gives;does;makes;B
+103;Egypt is an _______ country;Arabs;Arab;Arabian;Arabic;D
+104;I changed my novel six times.I _______ the changes myself;told;took;made;done;C
+105;As well as being an important writer,he was an expert _______ Arab;as;for;by;on;D
+106;When i was in New York,I ______ a lot;sunbathed;would sunbathe;was sunbathing;have sunbathed;A
+107; _______ reaching the airport,Ali found out that he had left one of his suitcases at home;Despite;On;While;When;C
+108;While ______ the new plan,Sami noticed that it was too long;revised;revise;revising;revises;C
+109;By 2012,I _______ three novels.It was a great achievement for me;was writing;had been writing;wil have;had written;D
+110;Having ______ in medicine,he became a doctor;graduates;graduated;graduate;graduating;B
+111;We arrived half an hour late.The film _______ half an hour earlier;began;was beginning;had begun;has begun;C
+112;Mona didn't send the message to her father until she _______ it;has written;has been writing;writing;had written;D
+113; _______ feeling the pain of the injection,she gave a spontaneous cry;On;After;Before;In;B
+114;After the house _________ painted,we furnished it;had been;had;has been;is;A
+115;________ finished my work,I went home;On;Having;After;Have;B
+116;Mother said that we could watch television after _______ our homework;finish;have finished;finishing;had finished;C
+117;Ahmed's grandmother _______ ill when he visited her yesterday;was seeming;seemed;had seemed;has seemed;B
+118;Maria first met her best friend when she _______ at primary school;is;has been;was;was being;C
+119;What _______ at midday yesterday;were you doing;have you done;are you doing;you were doing;A
+120;Henry ______ an English person before he met my friend,Jack;did not meet;had not met;won't meet;has not met;B
+121;When we saw the hotel, We _______ that it was a great place for a holiday;were knowing;have known;knew;had known;C
+122;The writer wrote his first story when he _______ at university;was being;had been;has been;was;D
+123;Dina _______ the test when the teacher told them to stop;haven't finished;not finishing;hasn't finished;hadn't finished;D
+124;The tourists _______ walking until they had reached the top of the mountain;haven't stopped;stopped;didn't stop;won't stop;C
+125;I first _______ stories and poems when I was at primary school;wrote;had written;was written;was writing;A
+126;I _______ the film before I read the book;'ve already seen;'d already seen;already seen;am already seeing;B
+127;I was reading a book when you _______ me last night;had phoned;phoned;was phoning;have phoned;B
+128;I ______ to the museum in 2015;have been;had been;went;was going;C
+129;I _______ home when mother was preparing lunch;returned;had returned;have returned;was returned;A
+130;While I ________ to the club,I saw some workers planting trees;did drive;had driven;was driving;drove;C
+131;Mia finished her studies before she _______ to the USA for a year;had gone;went;had been going;have gone;B
+132;When he left school,he _______ to join the army;has applied;had applied;applies;applied;D
+133;I ______ watching a cartoon on my tablet last night;enjoyed;used to enjoy;would enjoy;am used to enjoying;A
+134;I'm sure you _______ me,did you?;hadn't understood;understood;weren't understanding;didn't understand;D
+135;After _______ the lion,I was frightened;saw;seeing;was seeing;had seen;B
+136;It is time they _______ home from school.I wonder what has delayed them;are going;went;have gone;go;B
+137;Was she upset because her mother _______ recently;had died;had been died;was died;has died;A
+138;This book _______ by a famous writer;has written;had been written;was written;wrote;C
+139;I ______ stories very quickly,but I no longer write so quickly;write;am writing;used to write;have written;C
+140;I _______ short stories for five years.Now,I only write novels;was writing;have written;had written;wrote;D
+141;That author's books are very successful,so I think that we will easily find a _______ for his next book;programmer;writer;publisher;journalist;C
+142;Have you _______ any arrangements for the holidays;played;worked;done;made;D
+143;I can't go out because i've got to ________ the washing up;do;make;help;mend;A
+144;Doctors and nurse worked 18 hours without a ________ because of the train accident;trip;break;vacation;holiday;B
+145;I left the party because the loud music was _______ me a headache;doing;taking;giving;making;C
+146;Why do you _______ on leaving your dirty clothes all over the floor;depend;consist;persist;insist;D
+147;My father is keen on taking a look at the main ________ and international news every day;national;nationality;nationalistic;native;A
+148;Long got his _______ personality from his father,who was another great athlete;comparative;compete;competitive;competition;C
+149;She spent most of her _______ working in India;job;career;work;childhood;B
+150;The internet gives you the opportunity to know people from different _______ ;streets;houses;cultures;rooms;C
+151;Haqqi developed a new style of writing which is _______ today;respected;respect;respecting;respectful;A
+152;The restaurant is now under new ________ and its making a great profits;organisation;establishment;management;settlement;C
+153;The soldiers of the army are trained to get used to _______ orders;agreeing;obeying;refusing;disobeying;B
+154;Many women have abandoned their ________ role as wife and mother;imitative;unusual;fake;traditional;D
+155;The _______ of this charity was chiefly to assist orphans;disestablish;established;establish;establishment;D
+156;Soldiers returning from the war soon _______ the disease through most of the region;spread;published;prevailed;sowed;A
+157;We ordered our food after we _______ at the restaurant;sitting;had sat;sit;were sitting;B
+158;The _______ of vaccines to prevent diseases has helped to save many lives;custom;establishment;development;styling;C
+159;When I ________ my home work,my sister was helping my mother;did;had done;was doing;am doing;C
+160;When I ________ the station,the train left.I caught it;was reaching;reach;had reached;have reached;C
+161;I once _______ the newspaper every day.Now I don't have the time;was reading;had read;used to read;have read;C
+162;While I _______ one story,I was planning the next one;finished;had finished;finish;was finishing;D
+163;I ______ my own computer for three years before anything went wrong with it;'d had;had;was having;'ve had;A
+164;It was dark when we reached the beach because the sun _______ down;had gone;went;was going;has gone;A
+165;Yesterday evening,we _______ for our English test when all the lights went out;are revising;were revising;revised;had revised;B
+166;My mother made me a cake.It _________ of lemons;is tasting;tasted;was tasting;had tasted;B
+167;After Mona had played the piano,she ________ her sister with her homework;helped;had helped;was helping;helps;A
+168;First,she knocked on the door.Then she ________ inside;goes;was going;had gone;went;D
+169;While Yusuf _______ for the bus,it started to rain;waits;had waited;waited;was waiting;D
+170;We don't live in Vietnam now but we ______ there for thirty years;live;lived;have lived;are living;B
+171;He ________ home as soon as he had seen his brother off at the airport;returns;had returned;returned;will return;C
+172;Sameh had an accident as he ________ the street;is crossing;was crossing;crossed;had crossed;B
+173;While she was waiting for the train,she _______ a handbag under a bench;notices;had noticed;noticed;were noticing;C
+174;As the goalkeeper was running forward to seize the ball,something _______ him;struck;had struck;was striking;strike;A
+175;They _______ that bridge when I was here last year.They haven't finished it yet;are building;had built;built;were building;D
+176;I had finished my work before ________ the office;leaving;was leaving;had left;left;A
+177;At the age of seven,my parents ________ me to Jordan;took;take;were taking;are taking;C
+178;Where did you _______ to play when you were young;using;used;use;uses;C
+179;She started her work when she _______ the baby to bed;will put;had put;has put;puts;B
+180;By the age of five, Phong _______ to swim;had learnt;learns;learnt;is learning;A

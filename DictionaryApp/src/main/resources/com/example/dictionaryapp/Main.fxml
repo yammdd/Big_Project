@@ -95,4 +95,28 @@
          </children>
       </AnchorPane>
    </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="test_background" stylesheets="@../../../style/option.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="30.0" layoutY="55.0" style="-fx-font-size: 26; -fx-font-weight: bold;" text="A Multi-Featured English-Vietnamese Dictionary App" textFill="#072369" />
+            <Label layoutX="336.0" layoutY="139.0" style="-fx-font-size: 17; -fx-font-weight: bold;" text="ABOUT" textFill="#072369" />
+            <Label layoutX="336.0" layoutY="182.0" prefHeight="111.0" prefWidth="342.0" style="-fx-font-size: 15;" text="BLUELIN is a application designed to help users learn English and Vietnamese vocabulary efficiently. Developed by Group: Disable Disposal, the app offers a variety of features to enhance the learning experience." textFill="#072369" wrapText="true">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="373.0" style="-fx-font-size: 17; -fx-font-weight: bold;" text="KEY FEATURES" textFill="#072369" />
+            <Label layoutX="44.79999923706055" layoutY="400.0" prefHeight="214.0" prefWidth="620.0" style="-fx-font-size: 15;" text="BLUELIN goes beyond a simple dictionary with features like word suggestions, definition display, and language switching between English and Vietnamese. Users can save words for personal reference, and even customize the dictionary by adding, deleting, or editing meanings. BLUELIN offers pronunciation assistance for English words in both British and American accents. The app can translate words or sentences, or even translate text directly from images in over 30 languages, with pronunciation support using Voicerss API. In addition to these features, BLUELIN is planning to integrate interactive games and email functionality for a more well-rounded learning experience." textFill="#072369" wrapText="true" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="46.19999999999993">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="201.0" fitWidth="288.0" layoutX="30.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/English.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>
