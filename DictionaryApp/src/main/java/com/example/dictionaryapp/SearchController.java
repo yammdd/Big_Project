@@ -50,18 +50,10 @@ public class SearchController extends MainController implements Initializable {
     public static String ACCENT = Languages.English_UnitedStates;
     public static String path;
 
-   /* public void keyPressed(KeyEvent e) throws Exception {
-        if (e.getCode().equals(KeyCode.ENTER)) {
-            search();
-        }
-    }*/
-
     public void search() throws Exception {
         String text = searchWord.getText();
-        //String lowerCase-text = text.toLowerCase();
         if (set.contains(text)) {
             definitionView.getEngine().loadContent(data.get(text), "text/html");
-            //requestDownload(text);
         }
         savedShow();
     }
@@ -73,7 +65,6 @@ public class SearchController extends MainController implements Initializable {
             searchWord.setText(selected);
             x.setVisible(true);
             l.setVisible(true);
-            //requestDownload(selected);
         }
         savedShow();
     }
@@ -215,5 +206,4 @@ public class SearchController extends MainController implements Initializable {
         x.setVisible(false);
         l.setVisible(false);
     }
-
 }

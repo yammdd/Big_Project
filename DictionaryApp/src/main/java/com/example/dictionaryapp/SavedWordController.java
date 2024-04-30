@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,6 +28,7 @@ public class SavedWordController extends SearchController implements Initializab
     private Label label;
     @FXML
     private Pane UK;
+
     public static boolean setLang = false;
     private static final String myKey = "40ccd1f320c549f3afc53b26046c49a4";
     private String accent;

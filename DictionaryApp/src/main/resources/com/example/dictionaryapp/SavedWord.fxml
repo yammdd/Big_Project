@@ -51,7 +51,7 @@
                   <Image url="@images/eng-viet.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star" fitHeight="33.0" fitWidth="34.0" layoutX="641.0" layoutY="167.0" onMouseClicked="#unsaved" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star" fitHeight="33.0" fitWidth="34.0" layoutX="640.0" layoutY="165.0" onMouseClicked="#unsaved" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/icons8_Star_Filled_52px.png" />
                </image>

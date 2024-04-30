@@ -4,21 +4,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.web.HTMLEditor;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import java.util.Date;
 import java.util.Properties;
-
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
 
 public class SettingController extends SearchController implements Initializable {
 
@@ -43,7 +39,6 @@ public class SettingController extends SearchController implements Initializable
 
     public void search() throws Exception {
         String text = searchWord.getText();
-        //String lowerCase-text = text.toLowerCase();
         if (set.contains(text)) {
             htmlEditor.setHtmlText(data.get(text));
         }

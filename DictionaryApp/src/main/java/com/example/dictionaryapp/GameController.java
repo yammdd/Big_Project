@@ -1,6 +1,5 @@
 package com.example.dictionaryapp;
 
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -13,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -197,9 +195,6 @@ public class GameController extends MainController implements Initializable {
         if (score > highestScore) {
             highestScore = score;
         }
-        /*DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
-        String playTime = LocalTime.now().format(timeFormat) + " " + LocalDate.now().format(dateFormat);*/
         score = 0;
         FileWriter fw = new FileWriter("data/savedScores.txt");
         BufferedWriter bw = new BufferedWriter(fw);
@@ -222,7 +217,6 @@ public class GameController extends MainController implements Initializable {
 
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
-
         timeline.getKeyFrames().add(
                 new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
                     @Override
@@ -262,5 +256,4 @@ public class GameController extends MainController implements Initializable {
         alert.showAndWait();
         startTimer();
     }
-
 }

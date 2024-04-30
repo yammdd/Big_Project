@@ -58,9 +58,7 @@ Group: Disable Disposal
 
 # Project status <a name="status"></a>
 
-1. Add more dictionaries within the app.
-2. Integrate multiple complex games.
-3. Develop additional user utilities.
+- Project has been completed.
 
 # Installation <a name="installation"></a>
 

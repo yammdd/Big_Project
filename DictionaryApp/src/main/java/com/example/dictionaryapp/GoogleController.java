@@ -11,14 +11,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -171,7 +169,6 @@ public class GoogleController extends MainController implements Initializable {
             tesseract.setLanguage(lang);
             String text = tesseract.doOCR(new File(filePath));
             textFrom.setText((text));
-            //APISearch();
         }
         catch (TesseractException e) {
             e.printStackTrace();

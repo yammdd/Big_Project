@@ -81,7 +81,6 @@ public class MainController implements Initializable {
         BufferedReader br = new BufferedReader(fr);
         String line;
         while ((line = br.readLine()) != null) {
-            //System.out.println(line);
             String[] split = line.split(";");
             List<String> answers = new ArrayList<>();
             answers.add(split[2]);
@@ -102,10 +101,8 @@ public class MainController implements Initializable {
     public void sort() {
         List<String> list1 = new ArrayList<>(set_eng2vie);
         List<String> list2 = new ArrayList<>(set_vie2eng);
-        // Sorting a List
         Collections.sort(list1);
         Collections.sort(list2);
-        // Convert List to Set
         set_eng2vie = new LinkedHashSet<>(list1);
         set_vie2eng = new LinkedHashSet<>(list2);
     }
@@ -181,7 +178,6 @@ public class MainController implements Initializable {
             traineddata.put(parts[0], parts[3]);
         }
     }
-
 
     public void insertToMap_eng2vie(Set<String> set) {
         for (String word : set) {

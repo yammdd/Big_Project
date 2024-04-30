@@ -11,7 +11,9 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<junit.version>5.10.0</junit.version>  </properties>
+    <junit.version>5.10.0</junit.version>
+  </properties>
+
   <dependencies>
 
     <dependency>
@@ -25,15 +27,20 @@
       <artifactId>javafx-fxml</artifactId>
       <version>21</version>
     </dependency>
-<dependency>
+
+    <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-media</artifactId>
       <version>21</version>
-    </dependency><dependency>
+    </dependency>
+
+    <dependency>
       <groupId>org.controlsfx</groupId>
       <artifactId>controlsfx</artifactId>
       <version>11.1.2</version>
-    </dependency><dependency>
+    </dependency>
+
+    <dependency>
       <groupId>com.dlsc.formsfx</groupId>
       <artifactId>formsfx-core</artifactId>
       <version>11.6.0</version>
@@ -43,7 +50,9 @@
           <artifactId>*</artifactId>
         </exclusion>
       </exclusions>
-    </dependency><dependency>
+    </dependency>
+
+    <dependency>
       <groupId>com.github.almasb</groupId>
       <artifactId>fxgl</artifactId>
       <version>17.3</version>
@@ -54,12 +63,14 @@
         </exclusion>
       </exclusions>
     </dependency>
-<dependency>
+
+    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
@@ -80,7 +91,6 @@
       <version>4.5.1</version>
     </dependency>
 
-
   </dependencies>
 
   <build>
@@ -94,6 +104,7 @@
           <target>21</target>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
@@ -114,6 +125,7 @@
           </execution>
         </executions>
       </plugin>
+
     </plugins>
   </build>
 </project>
