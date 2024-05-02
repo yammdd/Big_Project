@@ -1,0 +1,14 @@
+.option {
+    -fx-background-radius: 20px;
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 20px;
+    -fx-border-color: #a6a6a9;
+    -fx-text-fill: #000000;
+}
+.option:hover {
+    -fx-background-color: linear-gradient(to right, #c0c3c4, #EAEEF4);
+}
+
+.test_background {
+    -fx-background-image: url("background.png");
+}

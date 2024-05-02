@@ -9,7 +9,8 @@ module com.example.dictionaryapp {
     requires javafx.media;
     requires activation;
     requires mail;
-    //requires java.mail;
+    requires tess4j;
+    requires java.desktop;
     opens com.example.dictionaryapp to javafx.fxml;
     exports com.example.dictionaryapp;
 }

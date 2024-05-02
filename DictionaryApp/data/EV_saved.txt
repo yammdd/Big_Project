@@ -1,4 +1,2 @@
-o yes
-cubbish
-english mode
 sacrificer
+tabaret

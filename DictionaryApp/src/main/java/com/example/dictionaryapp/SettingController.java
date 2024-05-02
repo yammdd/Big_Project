@@ -4,28 +4,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.web.HTMLEditor;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import java.util.Date;
 import java.util.Properties;
-
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-
 public class SettingController extends SearchController implements Initializable {
 
-    @FXML
-    private TextField searchWord;
-    @FXML
-    private ListView<String> listView;
     @FXML
     private HTMLEditor htmlEditor;
     @FXML
@@ -35,15 +27,18 @@ public class SettingController extends SearchController implements Initializable
     @FXML
     private TextField email;
     @FXML
-    private TextArea getSubject;
+    private TextField getSubject;
     @FXML
     private TextArea getContent;
+
     private  String pathRes;
     public static List<String> listWords;
+    private static final String from = "java.application.from@gmail.com";
+    private static final String to = "java.application.to@gmail.com";
+    private static final String password = "rnrraicahugtfbbw";
 
     public void search() throws Exception {
         String text = searchWord.getText();
-        //String lowerCase-text = text.toLowerCase();
         if (set.contains(text)) {
             htmlEditor.setHtmlText(data.get(text));
         }
@@ -59,8 +54,8 @@ public class SettingController extends SearchController implements Initializable
     }
 
     public void showAddWord() {
-        htmlEditor.setHtmlText("<html>" + searchWord.getText() + "<br/><ul><li><b><i> Part of speech: " +
-                "</i></b><ul><li><font color='#233fdb'><b> Definition: " +
+        htmlEditor.setHtmlText("<html>" + searchWord.getText() + "<br/><ul><li><b><i>Part of speech:" +
+                "</i></b><ul><li><font color='#233fdb'><b>Definition:" +
                 "</b></font></li></ul></li></ul></html>");
     }
 
@@ -68,7 +63,6 @@ public class SettingController extends SearchController implements Initializable
         vietnamese.setSelected(false);
         english.setSelected(true);
         listWords = list_EV;
-        data = data_eng2vie;
         pathRes = "data/EV.txt";
         changeLanguageForSetting(false);
     }
@@ -77,12 +71,9 @@ public class SettingController extends SearchController implements Initializable
         english.setSelected(false);
         vietnamese.setSelected(true);
         listWords = list_VE;
-        data = data_vie2eng;
         pathRes = "data/VE.txt";
         changeLanguageForSetting(true);
-
     }
-
 
     public void buttonDelete() throws IOException {
         String word = searchWord.getText();
@@ -121,7 +112,10 @@ public class SettingController extends SearchController implements Initializable
             alert.setContentText("This word is existed!");
             alert.showAndWait();
         } else {
-            String definition = htmlEditor.getHtmlText().replace(" dir=\"ltr\"", "");
+            String definition = htmlEditor.getHtmlText()
+                    .replace(" dir=\"ltr\"", "")
+                    .replace("Part of speech:", "")
+                    .replace("Definition", "");
             String text = word + definition;
             listWords.addLast(text);
             FileWriter fw = new FileWriter(pathRes);
@@ -172,10 +166,6 @@ public class SettingController extends SearchController implements Initializable
         }
     }
 
-    private static final String from = "java.application.from@gmail.com";
-    private static final String to = "java.application.to@gmail.com";
-    private static final String password = "rnrraicahugtfbbw";
-
     public static boolean sendEmail(String subject, String content) {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -183,7 +173,6 @@ public class SettingController extends SearchController implements Initializable
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.ssl.protocols", "TLSv1.2");
-
         Authenticator auth = new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -193,20 +182,13 @@ public class SettingController extends SearchController implements Initializable
         };
         Session session = Session.getInstance(props, auth);
         MimeMessage msg = new MimeMessage(session);
-
         try {
             msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
-
             //msg.setFrom(from);
-
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
-
             msg.setSubject(subject);
-
             msg.setSentDate(new Date());
-
             msg.setContent(content, "text/HTML; charset=UTF-8");
-
             Transport.send(msg);
             return true;
         } catch (Exception e) {
@@ -228,9 +210,8 @@ public class SettingController extends SearchController implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        pathRes = "data/EV.txt";
-        listWords = list_EV;
-        data = data_eng2vie;
-        english.setSelected(true);
+        setListEV();
+        x.setVisible(false);
+        l.setVisible(false);
     }
 }

@@ -8,6 +8,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.web.WebView;
@@ -30,13 +31,18 @@ public class SearchController extends MainController implements Initializable {
     protected ImageView favorite;
     @FXML
     protected Label label;
+    @FXML
+    protected ImageView x;
+    @FXML
+    protected Label l;
+    @FXML
+    private Pane uk;
+
     Image pic1 = new Image(getClass().getResourceAsStream("images/eng-viet.png"));
     Image pic2 = new Image(getClass().getResourceAsStream("images/viet-eng.png"));
     Image pic3 = new Image(getClass().getResourceAsStream("images/icons8_Star_Filled_52px.png"));
     Image pic4 = new Image(getClass().getResourceAsStream("images/icons8_Star_52px.png"));
-
     public static boolean setLanguage = false;
-    public static boolean setFavorite = false;
     public static Map<String, String> data = data_eng2vie;
     public static Set<String> set = set_eng2vie;
     public static List<String> curr;
@@ -44,19 +50,12 @@ public class SearchController extends MainController implements Initializable {
     public static String ACCENT = Languages.English_UnitedStates;
     public static String path;
 
-   /* public void keyPressed(KeyEvent e) throws Exception {
-        if (e.getCode().equals(KeyCode.ENTER)) {
-            search();
-        }
-    }*/
-
     public void search() throws Exception {
         String text = searchWord.getText();
-        //String lowerCase-text = text.toLowerCase();
         if (set.contains(text)) {
             definitionView.getEngine().loadContent(data.get(text), "text/html");
-            requestDownload(text);
         }
+        savedShow();
     }
 
     public void selectedWord() throws Exception {
@@ -64,8 +63,10 @@ public class SearchController extends MainController implements Initializable {
         if (selected != null) {
             definitionView.getEngine().loadContent(data.get(selected), "text/html");
             searchWord.setText(selected);
-            requestDownload(selected);
+            x.setVisible(true);
+            l.setVisible(true);
         }
+        savedShow();
     }
 
     public void changeLanguage() {
@@ -75,21 +76,24 @@ public class SearchController extends MainController implements Initializable {
             prefixMap = Map_vie2eng;
             set = set_vie2eng;
             data = data_vie2eng;
-            path = "data/Voice1.mp3";
+            path = "audio/Voice1.mp3";
             ACCENT = Languages.Vietnamese;
             label.setText("VIE");
-            //savedPath = "data/VE_saved.txt";
+            uk.setVisible(false);
         } else {
             imageView.setImage(pic1);
             setLanguage = true;
             prefixMap = Map_eng2vie;
             set = set_eng2vie;
             data = data_eng2vie;
-            path = "data/Voice2.mp3";
+            path = "audio/Voice2.mp3";
             ACCENT = Languages.English_UnitedStates;
             label.setText("US");
-            //savedPath = "data/VE_saved.txt";
+            uk.setVisible(true);
         }
+        searchWord.setText("");
+        listView.getItems().clear();
+        listView.getItems().addAll(set);
     }
 
     public void changeLanguageForSetting(boolean setLang) {
@@ -105,34 +109,43 @@ public class SearchController extends MainController implements Initializable {
             data = data_eng2vie;
         }
     }
-    public static boolean setUS_UK = false;
-    public void US_UK() {
-        if (setUS_UK) {
-            label.setText("UK");
-            ACCENT = Languages.English_GreatBritain;
-            setUS_UK = false;
+
+    public void savedShow() {
+        String text = searchWord.getText();
+        if (label.getText().equals("VIE")) {
+            if (!list_VE_saved.contains(text)) {
+                favorite.setImage(pic4);
+            } else {
+                favorite.setImage(pic3);
+            }
         } else {
-            label.setText("US");
-            ACCENT = Languages.English_UnitedStates;
-            setUS_UK = true;
+            if (!list_EV_saved.contains(text)) {
+                favorite.setImage(pic4);
+            } else {
+                favorite.setImage(pic3);
+            }
         }
     }
 
     public void showAllWords() {
         String text = searchWord.getText();
-
-        if (text.length() == 1) {
-            listView.getItems().removeAll(set);
-            curr = prefixMap.getOrDefault(text, new ArrayList<>());
-            listView.getItems().addAll(curr);
-
-        } else if (text.length() > 1) {
-            listView.getItems().removeAll(curr);
-            curr = prefixMap.getOrDefault(text, new ArrayList<>());
-            listView.getItems().addAll(curr);
+        listView.getItems().clear();
+        curr = prefixMap.getOrDefault(text, new ArrayList<>());
+        listView.getItems().addAll(curr);
+        if (!text.equals("")) {
+            x.setVisible(true);
+            l.setVisible(true);
+        } else {
+            x.setVisible(false);
+            l.setVisible(false);
         }
     }
 
+    public void cancelX() {
+        x.setVisible(false);
+        l.setVisible(false);
+        searchWord.setText("");
+    }
 
     public void requestDownload(String text) throws Exception {
         VoiceProvider tts = new VoiceProvider(myKey);
@@ -149,36 +162,48 @@ public class SearchController extends MainController implements Initializable {
         fos.close();
     }
 
-    public void spelling() {
-        Media sound = new Media(new File(path).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+    public void spelling() throws Exception {
+        String text = searchWord.getText();
+        if (!text.equals("")) {
+            requestDownload(text);
+            Media sound = new Media(new File(path).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.play();
+        }
     }
 
-    public void favorite_click() {
-        if (setFavorite) {
-            favorite.setImage(pic3);
-            setFavorite = false;
+    public void UK_spelling() throws Exception {
+        String text = searchWord.getText();
+        ACCENT = Languages.English_GreatBritain;
+        if (!text.equals("")) {
+            requestDownload(text);
+            Media sound = new Media(new File(path).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.play();
+            ACCENT = Languages.English_UnitedStates;
+        }
+    }
+
+    public void favorite_click() throws IOException {
+        String text = searchWord.getText();
+        favorite.setImage(pic3);
+        if (label.getText().equals("VIE")) {
+            if (!list_VE_saved.contains(text)) {
+                list_VE_saved.addLast(text);
+                writeVESavedWord();
+            }
         } else {
-            favorite.setImage(pic4);
-            setFavorite = true;
+            if (!list_EV_saved.contains(text)) {
+                list_EV_saved.addLast(text);
+                writeEVSavedWord();
+            }
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setLanguage = true;
-        prefixMap = Map_eng2vie;
-        set = set_eng2vie;
-        data = data_eng2vie;
-        path = "data/Voice2.mp3";
-        ACCENT = Languages.English_UnitedStates;
-        label.setText("US");
-        listView.getItems().addAll(set);
-        //savedPath = "data/EV_saved.txt";
-        //listWords = list_EV;
+        changeLanguage();
+        x.setVisible(false);
+        l.setVisible(false);
     }
-
-
-
 }
