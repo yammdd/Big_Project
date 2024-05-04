@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="700.0" styleClass="test_background" stylesheets="@../../../style/option.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.GameController">
+<AnchorPane prefHeight="700.0" prefWidth="700.0" styleClass="test_background" stylesheets="@../../../style/option.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryapp.QuizGameController">
    <children>
       <Label fx:id="question_text" alignment="CENTER" layoutX="41.0" layoutY="114.0" prefHeight="154.0" prefWidth="624.0" text=" " wrapText="true">
          <font>

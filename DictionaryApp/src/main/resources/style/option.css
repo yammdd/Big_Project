@@ -12,3 +12,42 @@
 .test_background {
     -fx-background-image: url("background.png");
 }
+
+.letter {
+    -fx-background-radius: 5px;
+    -fx-background-color: #679eee;
+    -fx-border-radius: 5px;
+    -fx-border-color: #3568a4;
+    -fx-text-fill: #082d5e;
+}
+
+.letter:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    transition: -fx-background-color 0.5s ease,
+    -fx-scale-x 0.5s ease,
+    -fx-scale-y 0.5s ease;
+}
+
+.start {
+    -fx-background-radius: 5px;
+    -fx-background-color: #87b5f1;
+    -fx-border-radius: 5px;
+    -fx-border-color: #71a9ec;
+    -fx-text-fill: #082d5e;
+}
+
+.start:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    transition: -fx-background-color 0.5s ease,
+    -fx-scale-x 0.5s ease,
+    -fx-scale-y 0.5s ease;
+}
+
+.attempt {
+    -fx-background-radius: 5px;
+    -fx-background-color: #e7e2e2;
+    -fx-border-radius: 5px;
+    -fx-border-color: #c4c3c3;
+}

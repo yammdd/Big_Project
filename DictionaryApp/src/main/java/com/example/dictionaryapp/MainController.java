@@ -3,6 +3,9 @@ package com.example.dictionaryapp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import java.io.*;
@@ -28,53 +31,8 @@ public class MainController implements Initializable {
     public static Map<String, List<String>> Map_eng2vie = new HashMap<>();
     public static Map<String, List<String>> Map_vie2eng = new HashMap<>();
     public static List<Quiz> quizList = new ArrayList<>();
+    public static List<Topic> topicList = new ArrayList<>();
     public static int getHighestScores;
-
-    static class Quiz {
-        private int question_id;
-        private String question;
-        private List<String> answers;
-        private String correctAnswer;
-
-        public Quiz(int question_id, String question, List<String> answers, String correctAnswer) {
-            this.question_id = question_id;
-            this.question = question;
-            this.answers = answers;
-            this.correctAnswer = correctAnswer;
-        }
-
-        public int getQuestion_id() {
-            return question_id;
-        }
-
-        public void setQuestion_id(int question_id) {
-            this.question_id = question_id;
-        }
-
-        public String getQuestion() {
-            return question;
-        }
-
-        public void setQuestion(String question) {
-            this.question = question;
-        }
-
-        public List<String> getAnswers() {
-            return answers;
-        }
-
-        public void setAnswers(List<String> answers) {
-            this.answers = answers;
-        }
-
-        public String getCorrectAnswer() {
-            return correctAnswer;
-        }
-
-        public void setCorrectAnswer(String correctAnswer) {
-            this.correctAnswer = correctAnswer;
-        }
-    }
 
     public void loadQuiz() throws IOException {
         FileReader fr = new FileReader("data/Quiz.txt");
@@ -89,6 +47,18 @@ public class MainController implements Initializable {
             answers.add(split[5]);
             Quiz quiz = new Quiz(Integer.parseInt(split[0]), split[1], answers, split[6]);
             quizList.add(quiz);
+        }
+    }
+
+    public void readWordHangman() throws IOException {
+        FileReader fis = new FileReader("data/Word.txt");
+        BufferedReader br = new BufferedReader(fis);
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] parts = line.split(";");
+            List<String> words = new ArrayList<>(Arrays.asList(parts).subList(1, parts.length));
+            Topic topic = new Topic(parts[0], words);
+            topicList.add(topic);
         }
     }
 
@@ -220,7 +190,26 @@ public class MainController implements Initializable {
     }
 
     public void button_game() throws IOException {
-        AnchorPane view = FXMLLoader.load(getClass().getResource("Game.fxml"));
+        ButtonType yes = new ButtonType("QuizGame", ButtonBar.ButtonData.OK_DONE);
+        ButtonType no = new ButtonType("Hangman", ButtonBar.ButtonData.CANCEL_CLOSE);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Choose your game you want to play.", yes, no);
+        alert.setTitle("Notification");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+        if (alert.getResult() == yes) {
+            quiz_game();
+        } else {
+            hangman_game();
+        }
+    }
+
+    public void quiz_game() throws IOException {
+        AnchorPane view = FXMLLoader.load(getClass().getResource("Quiz.fxml"));
+        borderPane.setCenter(view);
+    }
+
+    public void hangman_game() throws IOException {
+        AnchorPane view = FXMLLoader.load(getClass().getResource("Hangman.fxml"));
         borderPane.setCenter(view);
     }
 
@@ -232,6 +221,7 @@ public class MainController implements Initializable {
             readDataSaved();
             loadQuiz();
             loadScore();
+            readWordHangman();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
