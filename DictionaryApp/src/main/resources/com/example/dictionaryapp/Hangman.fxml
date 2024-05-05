@@ -117,13 +117,13 @@
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></JFXButton>
-      <ImageView fx:id="HangmanImage" fitHeight="313.0" fitWidth="241.0" layoutX="215.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="showCurrentWord" alignment="CENTER" layoutX="246.0" layoutY="394.0" prefHeight="40.0" prefWidth="180.0" text=" ">
+      <ImageView fx:id="HangmanImage" fitHeight="341.0" fitWidth="258.0" layoutX="221.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="showCurrentWord" alignment="CENTER" layoutX="260.0" layoutY="389.0" prefHeight="40.0" prefWidth="180.0" text=" ">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="showAttempts" alignment="CENTER_RIGHT" layoutX="479.0" layoutY="30.0" prefHeight="36.0" prefWidth="204.0" styleClass="attempt" text=" ">
+      <Label fx:id="showAttempts" alignment="CENTER" layoutX="520.0" layoutY="30.0" prefHeight="36.0" prefWidth="89.0" text=" ">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
@@ -132,12 +132,12 @@
          <font>
             <Font name="Arial" size="15.0" />
          </font></JFXButton>
-      <Label fx:id="wordLength" layoutX="492.0" layoutY="81.0" prefHeight="36.0" prefWidth="142.0" text="Word Length:">
+      <Label fx:id="wordLength" layoutX="506.0" layoutY="81.0" prefHeight="36.0" prefWidth="142.0" text="Word Length:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="482.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="520.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/heart.png" />
          </image>

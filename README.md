@@ -27,7 +27,7 @@ Group: Disable Disposal
 - The application also provides interactive games for users to enjoy while enhancing their learning experience effectively.
 
 <p align="center">
-<img width="640" height="480" src="https://i.imgur.com/HF777bz.png">
+<img width="640" height="480" src="https://i.imgur.com/khwT9bd.png">
 </p>
 
 # Features <a name="features"></a>
@@ -46,14 +46,14 @@ Group: Disable Disposal
 # UML Diagram <a name="uml"></a>
 
 <p align="center">
-<img width="640" height="480" src="https://i.imgur.com/75xD1xF.png">
+<img width="640" height="480" src="https://i.imgur.com/ZOiLFhO.png">
 </p>
 
 # Usage <a name="usage"></a>
 
 - YouTube preview video(up coming).
 <p align="center">
-<img width="640" height="480" src="https://i.imgur.com/TuU11VI.png">
+<img width="640" height="480" src="https://i.imgur.com/kxm0DAT.png">
 </p>
 
 # Project status <a name="status"></a>

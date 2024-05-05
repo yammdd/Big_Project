@@ -31,7 +31,7 @@
 
 .start {
     -fx-background-radius: 5px;
-    -fx-background-color: #87b5f1;
+    -fx-background-color: linear-gradient(to right, #87b5f1, #568fd2);
     -fx-border-radius: 5px;
     -fx-border-color: #71a9ec;
     -fx-text-fill: #082d5e;

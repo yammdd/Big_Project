@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -127,7 +128,7 @@ public class HangmanController extends MainController implements Initializable {
 
     private void displayGameInfo() {
         showCurrentWord.setText(currentWord);
-        showAttempts.setText("Attempts left:\t" + attemptsLeft);
+        showAttempts.setText("x" + attemptsLeft);
     }
 
     private void drawHangman(int attemptsLeft) {
@@ -167,7 +168,11 @@ public class HangmanController extends MainController implements Initializable {
         if (correctGuess) {
             displayGameInfo();
             if (currentWord.equals(secretWord)) {
-                showAttempts.setText("Congratulations!");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Notification");
+                alert.setHeaderText(null);
+                alert.setContentText("Congratulation!");
+                alert.showAndWait();
                 showCurrentWord.setText(secretWord);
             }
         } else {
@@ -176,7 +181,11 @@ public class HangmanController extends MainController implements Initializable {
             displayGameInfo();
         }
         if (attemptsLeft == 0) {
-            showAttempts.setText("Game Over!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Notification");
+            alert.setHeaderText(null);
+            alert.setContentText("Game Over!");
+            alert.showAndWait();
             showCurrentWord.setText(secretWord);
         }
     }

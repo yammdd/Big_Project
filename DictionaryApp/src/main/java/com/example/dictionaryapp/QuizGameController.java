@@ -40,6 +40,8 @@ public class QuizGameController extends MainController implements Initializable 
     @FXML
     private Label labelTimer;
     @FXML
+    private ImageView restart;
+    @FXML
     private ImageView A;
     @FXML
     private ImageView B;
@@ -207,6 +209,7 @@ public class QuizGameController extends MainController implements Initializable 
         alert.setHeaderText(null);
         alert.setContentText("Game Over!");
         alert.showAndWait();
+        restart.setVisible(true);
         isFinished = true;
     }
 
@@ -242,6 +245,7 @@ public class QuizGameController extends MainController implements Initializable 
         labelTimer.setText(String.valueOf(timeSeconds));
         setDefault();
         startTimer();
+        restart.setVisible(false);
     }
 
     @Override

@@ -97,14 +97,14 @@
             <Image url="@images/angle-right.png" />
          </image>
       </ImageView>
-      <Label fx:id="current_score" layoutX="456.0" layoutY="69.0" prefHeight="26.0" prefWidth="133.0" text="Score:">
+      <Label fx:id="current_score" layoutX="457.0" layoutY="69.0" prefHeight="26.0" prefWidth="133.0" text="Score:">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="labelTimer" layoutX="82.0" layoutY="24.0" prefHeight="42.0" prefWidth="57.0" text=" ">
+      <Label fx:id="labelTimer" layoutX="76.0" layoutY="23.0" prefHeight="42.0" prefWidth="57.0">
          <font>
-            <Font name="Arial" size="16.0" />
+            <Font name="Arial" size="20.0" />
          </font>
       </Label>
       <ImageView fitHeight="42.0" fitWidth="52.0" layoutX="28.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
@@ -112,7 +112,7 @@
             <Image url="@images/clock.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="36.0" layoutY="82.0" onMouseClicked="#restartTimer" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="restart" fitHeight="26.0" fitWidth="26.0" layoutX="36.0" layoutY="82.0" onMouseClicked="#restartTimer" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/restart.png" />
          </image>
