@@ -242,6 +242,8 @@ public class QuizGameController extends MainController implements Initializable 
 
     public void restartTimer() {
         timeSeconds = 120;
+        score = 0;
+        current_score.setText("Score:\t" + score);
         labelTimer.setText(String.valueOf(timeSeconds));
         setDefault();
         startTimer();
@@ -253,11 +255,6 @@ public class QuizGameController extends MainController implements Initializable 
         setDefault();
         highest_score.setText("Highest score:\t" + highestScore);
         current_score.setText("Score:\t" + score);
-        /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Rules");
-        alert.setHeaderText(null);
-        alert.setContentText("Choose A, B, C or D for each gap in the following sentences");
-        alert.showAndWait();*/
         startTimer();
     }
 }
