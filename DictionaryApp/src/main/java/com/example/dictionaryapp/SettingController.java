@@ -115,7 +115,7 @@ public class SettingController extends SearchController implements Initializable
             String definition = htmlEditor.getHtmlText()
                     .replace(" dir=\"ltr\"", "")
                     .replace("Part of speech:", "")
-                    .replace("Definition", "");
+                    .replace("Definition:", "");
             String text = word + definition;
             listWords.addLast(text);
             FileWriter fw = new FileWriter(pathRes);
@@ -137,7 +137,7 @@ public class SettingController extends SearchController implements Initializable
     public void buttonModify() throws IOException {
         ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
         ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to modify this word?", yes, no);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to edit this word?", yes, no);
         alert.setTitle("Notification");
         alert.setHeaderText(null);
         alert.showAndWait();
@@ -161,7 +161,7 @@ public class SettingController extends SearchController implements Initializable
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
             alert1.setTitle("Notification");
             alert1.setHeaderText(null);
-            alert1.setContentText("Modified successfully!");
+            alert1.setContentText("Edited successfully!");
             alert1.showAndWait();
         }
     }
