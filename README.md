@@ -7,9 +7,10 @@
 3. [Features](#features)
 4. [UML Diagram](#uml)
 5. [Usage](#usage)
-6. [Project status](#status)
-7. [Installation](#installation)
-8. [Notes](#notes)
+6. [Future improvements](#future)
+7. [Project status](#status)
+8. [Installation](#installation)
+9. [Notes](#notes)
 
 # Author <a name="author"></a>
 
@@ -55,6 +56,16 @@ Group: Disable Disposal
 <p align="center">
 <img width="640" height="480" src="https://i.imgur.com/kxm0DAT.png">
 </p>
+
+# Future improvements <a name="future"></a>
+
+1. Add more dictionaries.
+2. Add more complex games.
+3. Optimize the word lookup algorithm.
+4. Use a database to store data.
+5. Integrate the application with API of Google Translate to translate paragraphs and whole documents.
+6. Integrate the application with API of Google Speech to Text to convert speech to text.
+7. Improve the user interface.
 
 # Project status <a name="status"></a>
 

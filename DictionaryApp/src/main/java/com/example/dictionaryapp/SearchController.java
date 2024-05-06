@@ -112,17 +112,19 @@ public class SearchController extends MainController implements Initializable {
 
     public void savedShow() {
         String text = searchWord.getText();
-        if (label.getText().equals("VIE")) {
-            if (!list_VE_saved.contains(text)) {
-                favorite.setImage(pic4);
+        if (!text.isEmpty()) {
+            if (label.getText().equals("VIE")) {
+                if (!list_VE_saved.contains(text)) {
+                    favorite.setImage(pic4);
+                } else {
+                    favorite.setImage(pic3);
+                }
             } else {
-                favorite.setImage(pic3);
-            }
-        } else {
-            if (!list_EV_saved.contains(text)) {
-                favorite.setImage(pic4);
-            } else {
-                favorite.setImage(pic3);
+                if (!list_EV_saved.contains(text)) {
+                    favorite.setImage(pic4);
+                } else {
+                    favorite.setImage(pic3);
+                }
             }
         }
     }
@@ -132,7 +134,7 @@ public class SearchController extends MainController implements Initializable {
         listView.getItems().clear();
         curr = prefixMap.getOrDefault(text, new ArrayList<>());
         listView.getItems().addAll(curr);
-        if (!text.equals("")) {
+        if (!text.isEmpty()) {
             x.setVisible(true);
             l.setVisible(true);
         } else {
@@ -164,7 +166,7 @@ public class SearchController extends MainController implements Initializable {
 
     public void spelling() throws Exception {
         String text = searchWord.getText();
-        if (!text.equals("")) {
+        if (!text.isEmpty()) {
             requestDownload(text);
             Media sound = new Media(new File(path).toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
@@ -175,7 +177,7 @@ public class SearchController extends MainController implements Initializable {
     public void UK_spelling() throws Exception {
         String text = searchWord.getText();
         ACCENT = Languages.English_GreatBritain;
-        if (!text.equals("")) {
+        if (!text.isEmpty()) {
             requestDownload(text);
             Media sound = new Media(new File(path).toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
@@ -186,16 +188,18 @@ public class SearchController extends MainController implements Initializable {
 
     public void favorite_click() throws IOException {
         String text = searchWord.getText();
-        favorite.setImage(pic3);
-        if (label.getText().equals("VIE")) {
-            if (!list_VE_saved.contains(text)) {
-                list_VE_saved.addLast(text);
-                writeVESavedWord();
-            }
-        } else {
-            if (!list_EV_saved.contains(text)) {
-                list_EV_saved.addLast(text);
-                writeEVSavedWord();
+        if (!text.isEmpty()) {
+            favorite.setImage(pic3);
+            if (label.getText().equals("VIE")) {
+                if (!list_VE_saved.contains(text)) {
+                    list_VE_saved.addLast(text);
+                    writeVESavedWord();
+                }
+            } else {
+                if (!list_EV_saved.contains(text)) {
+                    list_EV_saved.addLast(text);
+                    writeEVSavedWord();
+                }
             }
         }
     }

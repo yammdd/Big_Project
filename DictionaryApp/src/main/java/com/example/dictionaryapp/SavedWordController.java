@@ -83,20 +83,24 @@ public class SavedWordController extends SearchController implements Initializab
 
     public void spellingSaved() throws Exception {
         String selected = textField.getText();
-        requestDownloadSaved(selected);
-        Media sound = new Media(new File(Path).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+        if (!selected.isEmpty()) {
+            requestDownloadSaved(selected);
+            Media sound = new Media(new File(Path).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.play();
+        }
     }
 
     public void spellingSavedUK() throws Exception {
         String selected = textField.getText();
-        accent = Languages.English_GreatBritain;
-        requestDownloadSaved(selected);
-        Media sound = new Media(new File(Path).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
-        accent = Languages.English_UnitedStates;
+        if (!selected.isEmpty()) {
+            accent = Languages.English_GreatBritain;
+            requestDownloadSaved(selected);
+            Media sound = new Media(new File(Path).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.play();
+            accent = Languages.English_UnitedStates;
+        }
     }
 
     public void unsaved() throws IOException {

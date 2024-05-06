@@ -16,16 +16,11 @@ import java.util.ResourceBundle;
 
 public class HangmanController extends MainController implements Initializable {
 
-    @FXML
-    private ComboBox<String> showTopics;
-    @FXML
-    private Label showCurrentWord;
-    @FXML
-    private Label showAttempts;
-    @FXML
-    private Label wordLength;
-    @FXML
-    private ImageView HangmanImage;
+    @FXML private ComboBox<String> showTopics;
+    @FXML private Label showCurrentWord;
+    @FXML private Label showAttempts;
+    @FXML private Label wordLength;
+    @FXML private ImageView HangmanImage;
     @FXML private Button aBut;
     @FXML private Button bBut;
     @FXML private Button cBut;
@@ -58,6 +53,7 @@ public class HangmanController extends MainController implements Initializable {
     private String currentWord;
     private int attemptsLeft;
     private Character guessSelected;
+    private boolean canClick = false;
 
     ObservableList<String> topics = FXCollections.observableArrayList("Careers", "Fruits", "Family",
             "Animals", "Colors", "Body parts", "Schools", "Personality", "Study materials",
@@ -76,15 +72,18 @@ public class HangmanController extends MainController implements Initializable {
     public void HangmanGameDefault() {
         Topic topic = getTopic();
         Random random = new Random();
+        attemptsLeft = MAX_ATTEMPTS;
         int randomIndex = 0;
         if (topic != null) {
             randomIndex = random.nextInt(topic.getWords().size());
             secretWord = topic.getWords().get(randomIndex);
             currentWord = "_".repeat(secretWord.length());
             wordLength.setText("Word Length:\t" + secretWord.length());
+            displayGameInfo();
+            canClick = true;
+        } else {
+            canClick = false;
         }
-        attemptsLeft = MAX_ATTEMPTS;
-        displayGameInfo();
         HangmanImage.setImage(null);
         aBut.setVisible(true);
         bBut.setVisible(true);
@@ -191,159 +190,211 @@ public class HangmanController extends MainController implements Initializable {
     }
 
     public void aButSelected() {
-        guessSelected = 'a';
-        aBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'a';
+            aBut.setVisible(false);
+            play();
+        }
     }
 
     public void bButSelected() {
-        guessSelected = 'b';
-        bBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'b';
+            bBut.setVisible(false);
+            play();
+        }
     }
 
     public void cButSelected() {
-        guessSelected = 'c';
-        cBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'c';
+            cBut.setVisible(false);
+            play();
+        }
     }
 
     public void dButSelected() {
-        guessSelected = 'd';
-        dBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'd';
+            dBut.setVisible(false);
+            play();
+        }
     }
 
     public void eButSelected() {
-        guessSelected = 'e';
-        eBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'e';
+            eBut.setVisible(false);
+            play();
+        }
     }
 
     public void fButSelected() {
-        guessSelected = 'f';
-        fBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'f';
+            fBut.setVisible(false);
+            play();
+        }
     }
 
     public void gButSelected() {
-        guessSelected = 'g';
-        gBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'g';
+            gBut.setVisible(false);
+            play();
+        }
     }
 
     public void hButSelected() {
-        guessSelected = 'h';
-        hBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'h';
+            hBut.setVisible(false);
+            play();
+        }
     }
 
     public void iButSelected() {
-        guessSelected = 'i';
-        iBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'i';
+            iBut.setVisible(false);
+            play();
+        }
     }
 
     public void jButSelected() {
-        guessSelected = 'j';
-        jBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'j';
+            jBut.setVisible(false);
+            play();
+        }
     }
 
     public void kButSelected() {
-        guessSelected = 'k';
-        kBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'k';
+            kBut.setVisible(false);
+            play();
+        }
     }
 
     public void lButSelected() {
-        guessSelected = 'l';
-        lBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'l';
+            lBut.setVisible(false);
+            play();
+        }
     }
 
     public void mButSelected() {
-        guessSelected = 'm';
-        mBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'm';
+            mBut.setVisible(false);
+            play();
+        }
     }
 
     public void nButSelected() {
-        guessSelected = 'n';
-        nBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'n';
+            nBut.setVisible(false);
+            play();
+        }
     }
 
     public void oButSelected() {
-        guessSelected = 'o';
-        oBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'o';
+            oBut.setVisible(false);
+            play();
+        }
     }
 
     public void pButSelected() {
-        guessSelected = 'p';
-        pBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'p';
+            pBut.setVisible(false);
+            play();
+        }
     }
 
     public void qButSelected() {
-        guessSelected = 'q';
-        qBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'q';
+            qBut.setVisible(false);
+            play();
+        }
     }
 
     public void rButSelected() {
-        guessSelected = 'r';
-        rBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'r';
+            rBut.setVisible(false);
+            play();
+        }
     }
 
     public void sButSelected() {
-        guessSelected = 's';
-        sBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 's';
+            sBut.setVisible(false);
+            play();
+        }
     }
 
     public void tButSelected() {
-        guessSelected = 't';
-        tBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 't';
+            tBut.setVisible(false);
+            play();
+        }
     }
 
     public void uButSelected() {
-        guessSelected = 'u';
-        uBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'u';
+            uBut.setVisible(false);
+            play();
+        }
     }
 
     public void vButSelected() {
-        guessSelected = 'v';
-        vBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'v';
+            vBut.setVisible(false);
+            play();
+        }
     }
 
     public void wButSelected() {
-        guessSelected = 'w';
-        wBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'w';
+            wBut.setVisible(false);
+            play();
+        }
     }
 
     public void xButSelected() {
-        guessSelected = 'x';
-        xBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'x';
+            xBut.setVisible(false);
+            play();
+        }
     }
 
     public void yButSelected() {
-        guessSelected = 'y';
-        yBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'y';
+            yBut.setVisible(false);
+            play();
+        }
     }
 
     public void zButSelected() {
-        guessSelected = 'z';
-        zBut.setVisible(false);
-        play();
+        if (canClick) {
+            guessSelected = 'z';
+            zBut.setVisible(false);
+            play();
+        }
     }
 
 

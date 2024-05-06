@@ -78,25 +78,29 @@ public class GoogleController extends MainController implements Initializable {
     }
 
     public void spelling1() throws Exception {
-        if (langFrom.getValue().equals("DetectLanguage")) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Notification");
-            alert.setHeaderText(null);
-            alert.setContentText("Not Supported");
-            alert.showAndWait();
-        } else {
-            requestDownload(textFrom.getText(), speakCode.get(langFrom.getValue()), path1);
-            Media sound = new Media(new File(path1).toURI().toString());
-            MediaPlayer mediaPlayer = new MediaPlayer(sound);
-            mediaPlayer.play();
+        if (!textFrom.getText().isEmpty()) {
+            if (langFrom.getValue().equals("DetectLanguage")) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Notification");
+                alert.setHeaderText(null);
+                alert.setContentText("Not Supported");
+                alert.showAndWait();
+            } else {
+                requestDownload(textFrom.getText(), speakCode.get(langFrom.getValue()), path1);
+                Media sound = new Media(new File(path1).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                mediaPlayer.play();
+            }
         }
     }
 
     public void spelling2() throws Exception {
-        requestDownload(textTo.getText(), speakCode.get(langTo.getValue()), path2);
-        Media sound = new Media(new File(path2).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+        if (!textTo.getText().isEmpty()) {
+            requestDownload(textTo.getText(), speakCode.get(langTo.getValue()), path2);
+            Media sound = new Media(new File(path2).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.play();
+        }
     }
 
     public void sortLang() {
@@ -126,12 +130,14 @@ public class GoogleController extends MainController implements Initializable {
 
     public void APISearch() throws Exception {
         String before = textFrom.getText();
-        String lang_From = "";
-        if (!langFrom.getValue().equals("DetectLanguage")) {
-            lang_From = searchCode.get(langFrom.getValue());
+        if (!before.isEmpty()) {
+            String lang_From = "";
+            if (!langFrom.getValue().equals("DetectLanguage")) {
+                lang_From = searchCode.get(langFrom.getValue());
+            }
+            String lang_To = searchCode.get(langTo.getValue());
+            textTo.setText(googleTranslate(lang_From, lang_To, before));
         }
-        String lang_To = searchCode.get(langTo.getValue());
-        textTo.setText(googleTranslate(lang_From, lang_To, before));
     }
 
     public void setChooseFile() {

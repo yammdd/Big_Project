@@ -31,10 +31,10 @@
 
 .start {
     -fx-background-radius: 5px;
-    -fx-background-color: linear-gradient(to right, #87b5f1, #568fd2);
+    -fx-background-color: linear-gradient(to left, #87b5f1, #568fd2);
     -fx-border-radius: 5px;
-    -fx-border-color: #71a9ec;
-    -fx-text-fill: #082d5e;
+    -fx-border-color: #4b94ea;
+    -fx-text-fill: #073a7e;
 }
 
 .start:hover {
@@ -45,9 +45,3 @@
     -fx-scale-y 0.5s ease;
 }
 
-.attempt {
-    -fx-background-radius: 5px;
-    -fx-background-color: #e7e2e2;
-    -fx-border-radius: 5px;
-    -fx-border-color: #c4c3c3;
-}

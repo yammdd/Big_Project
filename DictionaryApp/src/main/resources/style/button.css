@@ -15,13 +15,9 @@
     -fx-border-color: #2a2e57;
 }
 
-/*.button:focused {
-    -fx-background-color: #0a1236;
-    -fx-border-color: #0a1236;
-}*/
 
 .next {
-    -fx-background-color: #f1efef;
+    -fx-background-color: linear-gradient(to top, #c9cece, #ffffff);
     -fx-background-radius: 10px;
     -fx-border-color: #8f8e8e;
     -fx-border-radius: 10px;

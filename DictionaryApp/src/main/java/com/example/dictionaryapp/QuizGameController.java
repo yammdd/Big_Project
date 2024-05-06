@@ -66,6 +66,7 @@ public class QuizGameController extends MainController implements Initializable 
     public static String correctOption;
     private Timeline timeline;
     private int timeSeconds = 120;
+    boolean isFinished = false;
 
     public Quiz getQuiz(int questionId) {
         for (Quiz quiz : quizList) {
@@ -77,106 +78,121 @@ public class QuizGameController extends MainController implements Initializable 
     }
 
     public void setDefault() {
-        Random random = new Random();
-        int questionId = random.nextInt(180) + 1;
-        Quiz randomQuiz = getQuiz(questionId);
-        if (randomQuiz != null) {
-            question_text.setText(randomQuiz.getQuestion());
-            List<String> answers = randomQuiz.getAnswers();
-            option_a.setText(answers.get(0));
-            option_b.setText(answers.get(1));
-            option_c.setText(answers.get(2));
-            option_d.setText(answers.get(3));
-            correctOption = randomQuiz.getCorrectAnswer();
+        if (!isFinished) {
+            Random random = new Random();
+            int questionId = random.nextInt(180) + 1;
+            Quiz randomQuiz = getQuiz(questionId);
+            if (randomQuiz != null) {
+                question_text.setText(randomQuiz.getQuestion());
+                List<String> answers = randomQuiz.getAnswers();
+                option_a.setText(answers.get(0));
+                option_b.setText(answers.get(1));
+                option_c.setText(answers.get(2));
+                option_d.setText(answers.get(3));
+                correctOption = randomQuiz.getCorrectAnswer();
+            }
+            option_a.setStyle(null);
+            option_b.setStyle(null);
+            option_c.setStyle(null);
+            option_d.setStyle(null);
+            A.setImage(Apic);
+            B.setImage(Bpic);
+            C.setImage(Cpic);
+            D.setImage(Dpic);
         }
-        option_a.setStyle(null);
-        option_b.setStyle(null);
-        option_c.setStyle(null);
-        option_d.setStyle(null);
-        A.setImage(Apic);
-        B.setImage(Bpic);
-        C.setImage(Cpic);
-        D.setImage(Dpic);
     }
 
     public void showAnswer() throws IOException {
-        if (correctOption.equals("A")) {
-            option_a.setStyle(correctStyle);
-            option_b.setStyle(incorrectStyle);
-            option_c.setStyle(incorrectStyle);
-            option_d.setStyle(incorrectStyle);
-            if (getClickedOption.equals("A")) {
-                correctSound();
-                score += 10;
-                current_score.setText("Score:\t" + score);
-            } else {
-                incorrectSound();
-                gameFinished();
+        switch (correctOption) {
+            case "A" -> {
+                option_a.setStyle(correctStyle);
+                option_b.setStyle(incorrectStyle);
+                option_c.setStyle(incorrectStyle);
+                option_d.setStyle(incorrectStyle);
+                if (getClickedOption.equals("A")) {
+                    correctSound();
+                    score += 10;
+                    current_score.setText("Score:\t" + score);
+                } else {
+                    incorrectSound();
+                    gameFinished();
+                }
             }
-        } else if (correctOption.equals("B")) {
-            option_a.setStyle(incorrectStyle);
-            option_b.setStyle(correctStyle);
-            option_c.setStyle(incorrectStyle);
-            option_d.setStyle(incorrectStyle);
-            if (getClickedOption.equals("B")) {
-                correctSound();
-                score += 10;
-                current_score.setText("Score:\t" + score);
-            } else {
-                incorrectSound();
-                gameFinished();
+            case "B" -> {
+                option_a.setStyle(incorrectStyle);
+                option_b.setStyle(correctStyle);
+                option_c.setStyle(incorrectStyle);
+                option_d.setStyle(incorrectStyle);
+                if (getClickedOption.equals("B")) {
+                    correctSound();
+                    score += 10;
+                    current_score.setText("Score:\t" + score);
+                } else {
+                    incorrectSound();
+                    gameFinished();
+                }
             }
-        } else if (correctOption.equals("C")) {
-            option_a.setStyle(incorrectStyle);
-            option_b.setStyle(incorrectStyle);
-            option_c.setStyle(correctStyle);
-            option_d.setStyle(incorrectStyle);
-            if (getClickedOption.equals("C")) {
-                correctSound();
-                score += 10;
-                current_score.setText("Score:\t" + score);
-            } else {
-                incorrectSound();
-                gameFinished();
+            case "C" -> {
+                option_a.setStyle(incorrectStyle);
+                option_b.setStyle(incorrectStyle);
+                option_c.setStyle(correctStyle);
+                option_d.setStyle(incorrectStyle);
+                if (getClickedOption.equals("C")) {
+                    correctSound();
+                    score += 10;
+                    current_score.setText("Score:\t" + score);
+                } else {
+                    incorrectSound();
+                    gameFinished();
+                }
             }
-        } else {
-            option_a.setStyle(incorrectStyle);
-            option_b.setStyle(incorrectStyle);
-            option_c.setStyle(incorrectStyle);
-            option_d.setStyle(correctStyle);
-            if (getClickedOption.equals("D")) {
-                correctSound();
-                score += 10;
-                current_score.setText("Score:\t" + score);
-            } else {
-                incorrectSound();
-                gameFinished();
+            default -> {
+                option_a.setStyle(incorrectStyle);
+                option_b.setStyle(incorrectStyle);
+                option_c.setStyle(incorrectStyle);
+                option_d.setStyle(correctStyle);
+                if (getClickedOption.equals("D")) {
+                    correctSound();
+                    score += 10;
+                    current_score.setText("Score:\t" + score);
+                } else {
+                    incorrectSound();
+                    gameFinished();
+                }
             }
         }
     }
 
     public void ClickedA() throws IOException {
-        getClickedOption = "A";
-        A.setImage(A_pic);
-        showAnswer();
+        if (!isFinished) {
+            getClickedOption = "A";
+            A.setImage(A_pic);
+            showAnswer();
+        }
     }
 
     public void ClickedB() throws IOException {
-        getClickedOption = "B";
-        B.setImage(B_pic);
-        showAnswer();
+        if (!isFinished) {
+            getClickedOption = "B";
+            B.setImage(B_pic);
+            showAnswer();
+        }
     }
 
     public void ClickedC() throws IOException {
-        getClickedOption = "C";
-        C.setImage(C_pic);
-        showAnswer();
+        if (!isFinished) {
+            getClickedOption = "C";
+            C.setImage(C_pic);
+            showAnswer();
+        }
     }
 
     public void ClickedD() throws IOException {
-        getClickedOption = "D";
-        D.setImage(D_pic);
-        showAnswer();
+        if (!isFinished) {
+            getClickedOption = "D";
+            D.setImage(D_pic);
+            showAnswer();
+        }
     }
 
     public void correctSound() {
@@ -191,8 +207,6 @@ public class QuizGameController extends MainController implements Initializable 
         mediaPlayer.play();
     }
 
-
-    boolean isFinished = false;
     public void gameFinished() throws IOException {
         if (score > highestScore) {
             highestScore = score;
@@ -217,7 +231,6 @@ public class QuizGameController extends MainController implements Initializable 
         if (timeline != null) {
             timeline.stop();
         }
-
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.getKeyFrames().add(
@@ -228,7 +241,6 @@ public class QuizGameController extends MainController implements Initializable 
                         labelTimer.setText(String.valueOf(timeSeconds));
                         if (isFinished) {
                             timeline.stop();
-                            isFinished = false;
                         }
                         if (timeSeconds <= 0) {
                             timeline.stop();
@@ -245,6 +257,7 @@ public class QuizGameController extends MainController implements Initializable 
         score = 0;
         current_score.setText("Score:\t" + score);
         labelTimer.setText(String.valueOf(timeSeconds));
+        isFinished = false;
         setDefault();
         startTimer();
         restart.setVisible(false);
