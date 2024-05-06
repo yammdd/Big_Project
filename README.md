@@ -8,9 +8,10 @@
 4. [UML Diagram](#uml)
 5. [Usage](#usage)
 6. [Future improvements](#future)
-7. [Project status](#status)
-8. [Installation](#installation)
-9. [Notes](#notes)
+7. [Contributing](#contributing)
+8. [Project status](#status)
+9. [Installation](#installation)
+10. [Notes](#notes)
 
 # Author <a name="author"></a>
 
@@ -52,7 +53,7 @@ Group: Disable Disposal
 
 # Usage <a name="usage"></a>
 
-- YouTube preview video(up coming).
+- YouTube preview video([here](https://youtu.be/o9NaolD14Ss)).
 <p align="center">
 <img width="640" height="480" src="https://i.imgur.com/kxm0DAT.png">
 </p>
@@ -66,6 +67,10 @@ Group: Disable Disposal
 5. Integrate the application with API of Google Translate to translate paragraphs and whole documents.
 6. Integrate the application with API of Google Speech to Text to convert speech to text.
 7. Improve the user interface.
+
+# Contributing <a name="contributing"></a>
+
+- Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 # Project status <a name="status"></a>
 
